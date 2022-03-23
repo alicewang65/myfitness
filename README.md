@@ -1,57 +1,51 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(__TODO__: your project name_)
-
-# Shoppy Shoperson 
+# MyFitness
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project_)
+Whether you're a professional athlete or just starting your fitness journey, you're bound to hear about the advantages of keeping a training log. Training logs help you keep track of your progress and allow for self reflection in the future. 
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+However, it's not easy to keep track of all that information! MyFitness is a web app that will allow users to keep track of their workouts. Once registered and logged in, users can add, remove and update their workouts. They're also able to see all of their past workouts.
 
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other_) 
+The application will store Users, Logs and Entries.
 
-The application will store Users, Lists and Items
-
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
-
-(__TODO__: sample documents_)
+* users can have multiple logs (via references)
+* each log can have multiple entries (by references)
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+  username: "runneralice",
+  hash: // a password hash (which includes the salt),
+  logs: [] // an array of references to Log documents
 }
 ```
 
-An Example List with Embedded Items:
+An Example Log with Reference Entries:
 
 ```javascript
 {
   user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+  name: "Half Marathon Training",
+  items: [], // an array of references to Entry documents
+}
+```
+
+An Example Entry:
+```javascript
+{
+  title: "5k Training Run",
+  date: "03/15/2022",
+  description: "Ran a 5k at 6 min per kilometer. Felt..." // String describing workout (essentially workout entry)
 }
 ```
 
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(__TODO__: create a first draft of your Schemas in db.js and link to it_)
 
 ## Wireframes
 
@@ -69,26 +63,25 @@ An Example List with Embedded Items:
 
 ![list](documentation/list-slug.png)
 
+
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other_)
+![site map](documentation/sitemap.png)
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
 
 ## User Stories or Use Cases
 
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
+1. As non-registered user, I can register a new account with the site.
+2. As a user, I can log in to the site.
+3. As a user, I can see all of my logs in a single list / table format.
+4. As a user, I can create a new log.
+5. As a user, I can see the entries (title, date and preview) of a specific log in a single list / table format.
+6. As a user, I can create a new entry (title, date, description) in a log.
+7. As a user, I can modify an existing entry (including deleting the entry) in a log.
+8. As a visitor to the page, I can see the "About" page to learn more information about the site.
 
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
 
 ## Research Topics
-
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
