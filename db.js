@@ -22,6 +22,7 @@ const Log = new mongoose.Schema({
 
 User.plugin(passportLocalMongoose);
 Log.plugin(URLSlugs('name'));
+Entry.plugin(URLSlugs('title'));
 
 mongoose.model('User', User);
 mongoose.model('Log', Log);

@@ -1,5 +1,7 @@
 # MyFitness
 
+(Final web app name still to be finalized!)
+
 ## Overview
 
 Whether you're a professional athlete or just starting your fitness journey, you're bound to hear about the advantages of keeping a training log. Training logs help you keep track of your progress and allow for self reflection in the future. 
@@ -49,19 +51,32 @@ An Example Entry:
 
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
+/ - home page, welcome users
+![home page](documentation/home.png)
 
-/list/create - page for creating a new shopping list
+/about - page about the site
+![about page](documentation/about.png)
 
-![list create](documentation/list-create.png)
+/login - page for users to login or register
+![login/register page](documentation/loginregister.png)
 
-/list - page for showing all shopping lists
+/logs - page for showing all logs
+![logs page](documentation/logs.png)
 
-![list](documentation/list.png)
+/createlog - page for creating a log
+![create log page](documentation/createlog.png)
 
-/list/slug - page for showing specific shopping list
+/entries/slug - page for all entries for the given log
+![entries page](documentation/entries.png)
 
-![list](documentation/list-slug.png)
+/entry/slug - page for specific entry
+![specific entry page](documentation/entry.png)
+
+/entry/modify/slug - page for modifying an existing entry
+![modify entry page](documentation/modifyentry.png)
+
+/createentry - page for creating an entry for a given log
+![create entry page](documentation/createentry.png)
 
 
 ## Site map
