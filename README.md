@@ -8,8 +8,10 @@ Whether you're a professional athlete or just starting your fitness journey, you
 
 However, it's not easy to keep track of all that information! MyFitness is a web app that will allow users to keep track of their workouts. Once registered and logged in, users can add, remove and update their workouts. They're also able to see all of their past workouts.
 
+***
 
 ## Data Model
+
 
 The application will store Users, Logs and Entries.
 
@@ -45,9 +47,11 @@ An Example Entry:
 }
 ```
 
+***
 
 ## [Link to Commented First Draft Schema](db.js) 
 
+***
 
 ## Wireframes
 
@@ -72,11 +76,13 @@ An Example Entry:
 /modify - page for modifying an entry
 ![modify entry page](documentation/modify.png)
 
+***
 
 ## Site map
 
 ![site map](documentation/sitemap.png)
 
+***
 
 ## User Stories or Use Cases
 
@@ -87,29 +93,47 @@ An Example Entry:
 5. As a user, I can modify an existing entry (including deleting the entry) in a log.
 6. As a visitor to the page, I can see the home page to learn more information about the site.
 
+***
 
 ## Research Topics
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * An account has been made for testing; I'll email you the password
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+* (4 points) Passport
+    * Passport is "authentication middleware for Node.js"
+    * One of their strategies support authentication via username and password, which I'm planning on using
+    * Passport offers a more elegant and simpler way for me to handle the user authentication process, which is necessary for implementing user accounts
+    * Given my lack of familiarity with Passport, I've assigned it 5 points.
+* (4 points) React
+    * React is a "front-end JavaScript library for building user interfaces based on UI components"
+    * I've used React before in the past, and in my experience, it's helpful in building robust web pages quickly.
+    * However, I've never had a back-end with my React apps, which I anticipate being my biggest challenge (Professor Versoza also briefly mentioned that it can be tricky). Hence, I've given it 4 points.
+* (2 points) Bootstrap
+    * Bootstrap is a "CSS framework directed at responsive, mobile-first front-end web development"
+    * Bootstrap makes it easy to quickly integrate CSS into different elements (overall makes it easier to have a nice looking page)
+    * Per the requirements, I will be configuring a theme and playing around with other customization
+    * Point value assigned based on the requirements
+* (3 points) Formik
+    * Formik is a library that helps make client-side form validation easier, specifically for React apps
+    * For a more integrated and smooth user experience, I'm using Formik for the form validation, especially since my site will consist of quite a few forms.
+    * I'm not totally sure if it the errors are integrated into the DOM (following up on that in the next few days with Professor Versoza)
+    * Point value assigned based on the requirements
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
+13 points total out of 8 required points
 
+***
 
 ## [Link to Initial Main Project File](app.js) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
+***
 
 ## Annotations / References Used
 
-(__TODO__: list any tutorials/references/etc. that you've based your code off of_)
+### Tutorials
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. [Passport Password Tutorial](https://www.passportjs.org/tutorials/password/) - (add link to source code that was based on this)
+2. [Tutorial on the MERN Stack](https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66) - (add link to source code that was based on this)
 
+### Documentation
+1. [Passport Documentation](http://passportjs.org/docs) - (add link to source code that was based on this)
+2. [React Documentation](https://reactjs.org/docs/getting-started.html) - (add link to source code that was based on this)
+3. [Bootstrap Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/) - (add link to source code that was based on this)
+4. [Formik Documentation](https://formik.org/docs/overview) - (add link to source code that was based on this)
