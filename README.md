@@ -13,8 +13,8 @@ However, it's not easy to keep track of all that information! MyFitness is a web
 
 The application will store Users, Logs and Entries.
 
-* users can have multiple logs (via references)
-* each log can have multiple entries (by references)
+* users have one log (via references)
+* each log can have multiple entries (embedded)
 
 An Example User:
 
@@ -22,17 +22,17 @@ An Example User:
 {
   username: "runneralice",
   hash: // a password hash (which includes the salt),
-  logs: [] // an array of references to Log documents
+  log: // a reference to a Log document
 }
 ```
 
-An Example Log with Reference Entries:
+An Example Log with Embedded Entries:
 
 ```javascript
 {
   user: // a reference to a User object
   name: "Half Marathon Training",
-  items: [], // an array of references to Entry documents
+  items: [], // an array of Entry documents
 }
 ```
 
@@ -54,29 +54,23 @@ An Example Entry:
 / - home page, welcome users
 ![home page](documentation/home.png)
 
-/about - page about the site
-![about page](documentation/about.png)
+/register - page for users to register (create an account)
+![login/register page](documentation/register.png)
 
-/login - page for users to login or register
-![login/register page](documentation/loginregister.png)
+/login - page for users to login to their account
+![login/register page](documentation/login.png)
 
-/logs - page for showing all logs
-![logs page](documentation/logs.png)
+/entries/slug - page for showing all entries
+![logs page](documentation/entries.png)
 
-/createlog - page for creating a log
-![create log page](documentation/createlog.png)
+/create - page for creating a new entry
+![create an entry page](documentation/create.png)
 
-/entries/slug - page for all entries for the given log
-![entries page](documentation/entries.png)
+/view/slug - page for viewing an entry
+![view entry page](documentation/entry.png)
 
-/entry/slug - page for specific entry
-![specific entry page](documentation/entry.png)
-
-/entry/modify/slug - page for modifying an existing entry
-![modify entry page](documentation/modifyentry.png)
-
-/createentry - page for creating an entry for a given log
-![create entry page](documentation/createentry.png)
+/modify - page for modifying an entry
+![modify entry page](documentation/modify.png)
 
 
 ## Site map
@@ -88,21 +82,17 @@ An Example Entry:
 
 1. As non-registered user, I can register a new account with the site.
 2. As a user, I can log in to the site.
-3. As a user, I can see all of my logs in a single list / table format.
-4. As a user, I can create a new log.
-5. As a user, I can see the entries (title, date and preview) of a specific log in a single list / table format.
-6. As a user, I can create a new entry (title, date, description) in a log.
-7. As a user, I can modify an existing entry (including deleting the entry) in a log.
-8. As a visitor to the page, I can see the "About" page to learn more information about the site.
+3. As a user, I can see all of my entries (title, date and preview) in a single list / table format.
+4. As a user, I can create a new entry (title, date, description) in a log.
+5. As a user, I can modify an existing entry (including deleting the entry) in a log.
+6. As a visitor to the page, I can see the home page to learn more information about the site.
 
 
 ## Research Topics
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
+    * An account has been made for testing; I'll email you the password
 * (4 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 5, an error message will appear in the dom

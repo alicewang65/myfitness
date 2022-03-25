@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 const User = new mongoose.Schema({
 	username: {type: String, required: true},
 	password: {type: String, required: true},
-  	logs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Log' }]
+  	log: { type: mongoose.Schema.Types.ObjectId, ref: 'Log' }
 });
 
 const Entry = new mongoose.Schema({
@@ -16,12 +16,11 @@ const Entry = new mongoose.Schema({
 
 const Log = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-	name: {type: String, required: true},
 	items: [Entry]
 });
 
 User.plugin(passportLocalMongoose);
-Log.plugin(URLSlugs('name'));
+Log.plugin(URLSlugs('user'));
 Entry.plugin(URLSlugs('title'));
 
 mongoose.model('User', User);
