@@ -8,7 +8,6 @@ Whether you're a professional athlete or just starting your fitness journey, you
 
 However, it's not easy to keep track of all that information! MyFitness is a web app that will allow users to keep track of their workouts. Once registered and logged in, users can add, remove and update their workouts. They're also able to see all of their past workouts.
 
-***
 
 ## Data Model
 
@@ -47,11 +46,9 @@ An Example Entry:
 }
 ```
 
-***
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-***
 
 ## Wireframes
 
@@ -76,13 +73,11 @@ An Example Entry:
 /modify - page for modifying an entry
 ![modify entry page](documentation/modify.png)
 
-***
 
 ## Site map
 
 ![site map](documentation/sitemap.png)
 
-***
 
 ## User Stories or Use Cases
 
@@ -93,7 +88,6 @@ An Example Entry:
 5. As a user, I can modify an existing entry (including deleting the entry) in a log.
 6. As a visitor to the page, I can see the home page to learn more information about the site.
 
-***
 
 ## Research Topics
 
@@ -119,11 +113,9 @@ An Example Entry:
 
 13 points total out of 8 required points
 
-***
 
 ## [Link to Initial Main Project File](app.js) 
 
-***
 
 ## Annotations / References Used
 
