@@ -1,6 +1,6 @@
-const mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs'),
-	passportLocalMongoose = require('passport-local-mongoose');
+const mongoose = require('mongoose');
+// URLSlugs = require('mongoose-url-slugs'),
+// passportLocalMongoose = require('passport-local-mongoose');
 
 // User Schema, stores their username, password, and a
 // reference to their (workout) log
@@ -26,11 +26,23 @@ const Log = new mongoose.Schema({
 	items: [Entry]
 });
 
-User.plugin(passportLocalMongoose);
-Log.plugin(URLSlugs('user'));
-Entry.plugin(URLSlugs('title'));
+// User.plugin(passportLocalMongoose);
+// Log.plugin(URLSlugs('user'));
+// Entry.plugin(URLSlugs('title'));
 
 mongoose.model('User', User);
 mongoose.model('Log', Log);
 mongoose.model('Entry', Entry);
-mongoose.connect('mongodb://localhost/journaldb');
+
+
+const mongooseOpts = {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+};
+mongoose.connect('mongodb://localhost/traininglogs', mongooseOpts, (err) => {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log("connected to database");
+	}
+});
