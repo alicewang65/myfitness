@@ -39,7 +39,7 @@ const mongooseOpts = {
 	useUnifiedTopology: true
 };
 
-const url = "***REMOVED***";
+const url = process.env.MONGODB_CONNECTION_STRING;
 
 mongoose.connect(url, mongooseOpts, (err) => {
 	if (err) {
