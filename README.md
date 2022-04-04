@@ -9,8 +9,8 @@ To access the form that isn't login/registration, you do need to be LOGGED IN. (
 After logging in, you will be redirected to the page that shows all of your entries (this is the page proves adding an entry works!). You can navigate to the add entry page from the navigation bar at the top of the page. After adding an entry, you will also be redirected to the page showing all of your entries.
 
 Research Topic Updates:
-* I have fully integrated Passport into my web app
-* I have limited bootstrap included
+* I have fully integrated Passport into my web app, code is seen [here](./passport_config.js) and [here](./auth.js)
+* I have limited bootstrap included (just the navbar for the site)
 * I have used a front-end framework, namely React
 
 ## Overview
