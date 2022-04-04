@@ -1,28 +1,27 @@
 {
-  "name": "final-project-alicewang65",
+  "name": "server",
   "version": "1.0.0",
-  "description": "(Final web app name still to be finalized!)",
-  "main": ".eslintrc.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "cd server && nodemon index.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65.git"
+  "engines": {
+    "node": "17.8.0"
   },
-  "author": "",
+  "author": "Alice Wang",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/issues"
-  },
-  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65#readme",
   "dependencies": {
-    "dotenv": "^16.0.0"
+    "argon2": "^0.28.5",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.9",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }

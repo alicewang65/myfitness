@@ -47,7 +47,7 @@ An Example Entry:
 ```
 
 
-## [Link to Schema](db.js) 
+## [Link to Schema](./db.js) 
 
 
 ## Wireframes
@@ -117,10 +117,10 @@ An Example Entry:
 ## Links to Project
 
 ### Backend
-* [main page for backend](./server/index.js)
-* [page for additional routes](./server/routes.js)
-* [passport local strategy setup](./server/passport_config.js)
-* [login/register routes](./server/auth.js)
+* [main page for backend](.index.js)
+* [page for additional routes](.routes.js)
+* [passport local strategy setup](.passport_config.js)
+* [login/register routes](.auth.js)
 
 ### Frontend
 * [main page for frontend](./client/index.js)

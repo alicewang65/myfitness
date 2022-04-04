@@ -27,7 +27,7 @@ export function Register(props) {
         if (Object.hasOwnProperty.call(res.data, "error")) {
             setError(res.data.error);
         } else {
-            navigate("/");
+            navigate("/home");
         }
     };
 

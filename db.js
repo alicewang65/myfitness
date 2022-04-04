@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 // URLSlugs = require('mongoose-url-slugs'),
 // passportLocalMongoose = require('passport-local-mongoose');
 
@@ -40,6 +41,7 @@ const mongooseOpts = {
 };
 
 const url = process.env.MONGODB_CONNECTION_STRING;
+// const url = "mongodb://localhost/traininglogs";
 
 mongoose.connect(url, mongooseOpts, (err) => {
 	if (err) {

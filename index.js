@@ -8,6 +8,10 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+
+// serve build files
+app.use(express.static(path.join(__dirname, "client", "build")))
+
 // body parser (req.body)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -38,5 +42,9 @@ app.get("/user", (req, res) => {
 
 const routes = require("./routes.js");
 app.use("/", routes);
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(process.env.PORT || 3000);
