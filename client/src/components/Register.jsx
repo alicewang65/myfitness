@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 export function Register(props) {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
 
     const userHandler = (e) => {
         setUser(e.target.value);
@@ -16,12 +20,20 @@ export function Register(props) {
 
     const submit = async (e) => {
         e.preventDefault();
-        await api.registerUser({username: user, password: pass});
+        const res = await api.registerUser({username: user, password: pass});
+        // console.log(res.data);
+
+        if (Object.hasOwnProperty.call(res.data, "error")) {
+            setError(res.data.error);
+        } else {
+            navigate("/");
+        }
     };
 
     return (
         <div>
             <h1>Register</h1>
+            {error === "" ? <p>{error}</p> : <p></p>}
             <form onSubmit={submit}>
                 <section>
                     <label for="username">Username</label>

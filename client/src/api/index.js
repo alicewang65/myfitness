@@ -4,10 +4,23 @@ const api = axios.create({
     baseURL: "http://localhost:3000/"
 });
 
-export const registerUser = payload => api.post("/register", payload);
+const registerUser = async (payload) => {
+    return await api.post("/register", payload);
+};
+
+const loginUser = async (payload) => {
+    return await api.post("/login", payload);
+};
+
+const getUser = async () => {
+    console.log("get user");
+    return await api.get("/user", {withCredentials: true});
+};
 
 const apis = {
-    registerUser
+    registerUser,
+    loginUser,
+    getUser
 };
 
 export default apis;

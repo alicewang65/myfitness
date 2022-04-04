@@ -1,19 +1,59 @@
 import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import api from "../api";
 
 export function Login(props) {
+    const navigate = useNavigate();
+
+    const [user, setUser] = useState("");
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
+
+    const userHandler = (e) => {
+        setUser(e.target.value);
+    };
+
+    const passHandler = (e) => {
+        setPass(e.target.value);
+    }
+
+    const submit = async (e) => {
+        e.preventDefault();
+        const res = await api.loginUser({username: user, password: pass});
+        console.log(res);
+        console.log(res.data);
+
+        if (Object.hasOwnProperty.call(res.data, "error")) {
+            console.log("setting error");
+            setError(res.data.error);
+        } else {
+            navigate("/user");
+        }
+    };
+
     return (
         <div>
             <h1>Login</h1>
-            <form action="/login" method="POST">
+            {error === "" ? <p></p> : <p>{error}</p>}
+            <form onSubmit={submit}>
                 <section>
                     <label for="username">Username</label>
-                    <input id="username" name="username" type="text" autocomplete="username" required autofocus />
+                    <input id="username" 
+                        name="username" 
+                        type="text" 
+                        onChange={userHandler}
+                        required autofocus />
                 </section>
                 <section>
                     <label for="current-password">Password</label>
-                    <input id="current-password" name="password" type="password" autocomplete="current-password" required />
+                    <input id="current-password" 
+                        name="password" 
+                        type="password" 
+                        onChange={passHandler}
+                        required />
                 </section>
-                <button type="submit">Sign In</button>
+                <button type="submit">Log In</button>
             </form>
         </div>
     );
