@@ -22,7 +22,6 @@ const Entry = new mongoose.Schema({
 // entries, since user's will be able to see their
 // entries all at once
 const Log = new mongoose.Schema({
-	user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
 	items: [Entry]
 });
 

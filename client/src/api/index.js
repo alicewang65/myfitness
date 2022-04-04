@@ -9,7 +9,7 @@ const registerUser = async (payload) => {
 };
 
 const loginUser = async (payload) => {
-    return await api.post("/login", payload);
+    return await api.post("/login", payload, {withCredentials: true});
 };
 
 const getUser = async () => {
@@ -17,10 +17,20 @@ const getUser = async () => {
     return await api.get("/user", {withCredentials: true});
 };
 
+const addEntry = async (payload) => {
+    return await api.post("/create", payload);
+};
+
+const getEntries = async () => {
+    return await api.get("/entries");
+};
+
 const apis = {
     registerUser,
     loginUser,
-    getUser
+    getUser,
+    addEntry,
+    getEntries
 };
 
 export default apis;

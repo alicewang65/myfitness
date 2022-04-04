@@ -91,7 +91,7 @@ An Example Entry:
 
 ## Research Topics
 
-* (4 points) Passport
+* (5 points) Passport
     * Passport is "authentication middleware for Node.js"
     * One of their strategies support authentication via username and password, which I'm planning on using
     * Passport offers a more elegant and simpler way for me to handle the user authentication process, which is necessary for implementing user accounts
@@ -111,7 +111,7 @@ An Example Entry:
     * I'm not totally sure if it the errors are integrated into the DOM (following up on that in the next few days with Professor Versoza)
     * Point value assigned based on the requirements
 
-13 points total out of 8 required points
+14 points total out of 8 required points
 
 
 ## [Link to Initial Main Project File](app.js) 

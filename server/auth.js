@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Log = mongoose.model("Log");
 const argon2 = require("argon2");
 
 module.exports = (app, passport) => {
@@ -21,8 +22,9 @@ module.exports = (app, passport) => {
                         res.json({"error": "Error logging in."});
                     } else {
                         console.log("authenticate method req user");
-                        console.log(req);
+                        console.log(req.user);
                         
+                        // res.setHeader("Access-Control-Allow-Credentials", "true");
                         res.json({"status": "Successfully logged in."});
                         // console.log(req.user);
                     }
@@ -41,17 +43,24 @@ module.exports = (app, passport) => {
                 res.json({"error": "Username already exists."});
             } else {
                 const hashedPass = await argon2.hash(req.body.password);
-    
-                new User({
-                    username: req.body.username,
-                    password: hashedPass
-                }).save((err, user) => {
+                
+                new Log({items: []}).save((err, log) => {
                     if (err) {
-                        res.json({"error": "Error saving user to database."});
+                        console.log(err);
                     } else {
-                        res.json({"status": "Sucessfully registered user."});
+                        new User({
+                            username: req.body.username,
+                            password: hashedPass,
+                            log: log["_id"]
+                        }).save((err, user) => {
+                            if (err) {
+                                res.json({"error": "Error saving user to database."});
+                            } else {
+                                res.json({"status": "Sucessfully registered user."});
+                            }
+                        });
                     }
-                })
+                });
             }
         });
     });

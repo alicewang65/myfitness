@@ -6,6 +6,8 @@ import { Register } from './components/Register';
 import { Login } from "./components/Login";
 import { User } from "./components/User";
 import reportWebVitals from './reportWebVitals';
+import { AddEntry } from './components/AddEntry';
+import {AllEntries} from "./components/AllEntries";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +17,8 @@ ReactDOM.render(
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/user" element={<User />}/>
+        <Route path="/create" element={<AddEntry/>}/>
+        <Route path="/entries" element={<AllEntries />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

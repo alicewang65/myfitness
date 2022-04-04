@@ -16,12 +16,12 @@ app.use(cors({
     credentials: true
 }));
 
-app.use(session({ secret: "secrettt", saveUninitialized: true, resave: true }));
+app.use(session({ secret: "secrettt", saveUninitialized: false, resave: false }));
 app.use(cookieParser("secrettt"));
 
-require("./passport_config.js")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+require("./passport_config.js")(passport);
 
 
 require("./auth.js")(app, passport);
@@ -32,8 +32,11 @@ app.get("/", (req, res) => {
 
 app.get("/user", (req, res) => {
     console.log("user route");
-    console.log(req);
+    console.log(req.user);
     res.json({"message": "hello"});
 });
+
+const routes = require("./routes.js");
+app.use("/", routes);
 
 app.listen(3000);
