@@ -2,6 +2,17 @@
 
 (Final web app name still to be finalized!)
 
+## Milestone 2 Update
+
+To access the form that isn't login/registration, you do need to be LOGGED IN. (Login credentials have been included in Google form, but they are also here -- username: "test", password: "password")
+
+After logging in, you will be redirected to the page that shows all of your entries (this is the page proves adding an entry works!). You can navigate to the add entry page from the navigation bar at the top of the page. After adding an entry, you will also be redirected to the page showing all of your entries.
+
+Research Topic Updates:
+* I have fully integrated Passport into my web app
+* I have limited bootstrap included
+* I have used a front-end framework, namely React
+
 ## Overview
 
 Whether you're a professional athlete or just starting your fitness journey, you're bound to hear about the advantages of keeping a training log. Training logs help you keep track of your progress and allow for self reflection in the future. 
