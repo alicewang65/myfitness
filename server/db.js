@@ -38,7 +38,10 @@ const mongooseOpts = {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 };
-mongoose.connect('mongodb://localhost/traininglogs', mongooseOpts, (err) => {
+
+const url = "***REMOVED***";
+
+mongoose.connect(url, mongooseOpts, (err) => {
 	if (err) {
 		console.log(err);
 	} else {

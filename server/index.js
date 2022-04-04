@@ -39,4 +39,4 @@ app.get("/user", (req, res) => {
 const routes = require("./routes.js");
 app.use("/", routes);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

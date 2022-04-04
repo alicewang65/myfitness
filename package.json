@@ -1,0 +1,19 @@
+{
+  "name": "final-project-alicewang65",
+  "version": "1.0.0",
+  "description": "(Final web app name still to be finalized!)",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65#readme"
+}
