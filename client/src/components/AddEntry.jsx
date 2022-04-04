@@ -1,13 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import api from "../api";
+import { useNavigate, useParams } from "react-router-dom";
+import api from "../api.js";
+import { NavBarLoggedIn } from './NavBarLoggedIn.jsx';
 
 export function AddEntry() {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [entry, setEntry] = useState("");
+
+    const params = useParams();
 
     const titleHandler = (e) => {
         setTitle(e.target.value);
@@ -31,12 +35,13 @@ export function AddEntry() {
         });
 
         if (Object.hasOwnProperty.call(res.data, "status")) {
-            navigate("/entries");
+            navigate("/entries/" + params.id);
         }
     };
 
     return (
         <div>
+            <NavBarLoggedIn />
             <h1>Create a New Entry</h1>
             <form onSubmit={submit}>
                 <section>
@@ -63,7 +68,7 @@ export function AddEntry() {
                         rows="5"
                         placeholder="Enter your training entry here..."/>
                 </section>
-                <button type="submit">Register</button>
+                <button type="submit">Add Entry</button>
             </form>
         </div>
     );

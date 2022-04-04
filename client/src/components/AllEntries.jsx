@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import api from "../api";
+import api from "../api.js";
+import { NavBarLoggedIn } from './NavBarLoggedIn.jsx';
 
 export function AllEntries() {
     const [entries, setEntries] = useState([]);
@@ -19,6 +20,7 @@ export function AllEntries() {
 
     return (
         <div>
+            <NavBarLoggedIn />
             <h1>See Entries</h1>
             {
                 entries.map((ele) => {
