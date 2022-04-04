@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './app';
 import { Register } from './components/Register';
 import { Login } from "./components/Login";
 import { User } from "./components/User";
@@ -9,16 +8,26 @@ import reportWebVitals from './reportWebVitals';
 import { AddEntry } from './components/AddEntry';
 import {AllEntries} from "./components/AllEntries";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import { NavBar } from './components/NavBar';
+import { Home } from './components/Home';
+import { HomeLoggedIn } from './components/HomeLoggedIn';
+import { NotFound } from './components/NotFound';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/user" element={<User />}/>
-        <Route path="/create" element={<AddEntry/>}/>
-        <Route path="/entries" element={<AllEntries />}/>
+        <Route exact path="/home" element={<Home />}/>
+        <Route exact path="/home/:id" element={<HomeLoggedIn/>}/>
+        <Route exact path="/register" element={<div><Register /></div>}/>
+        <Route exact path="/login" element={<div><Login /></div>}/>
+        {/* <Route path="/user" element={<User />}/> */}
+        <Route exact path="/create/:id" element={<AddEntry/>}/>
+        <Route exact path="/entries/:id" element={<AllEntries />}/>
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

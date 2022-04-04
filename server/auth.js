@@ -25,7 +25,7 @@ module.exports = (app, passport) => {
                         console.log(req.user);
                         
                         // res.setHeader("Access-Control-Allow-Credentials", "true");
-                        res.json({"status": "Successfully logged in."});
+                        res.json({"id": req.user._id, "status": "Successfully logged in."});
                         // console.log(req.user);
                     }
                 });

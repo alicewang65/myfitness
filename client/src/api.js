@@ -18,11 +18,11 @@ const getUser = async () => {
 };
 
 const addEntry = async (payload) => {
-    return await api.post("/create", payload);
+    return await api.post("/create", payload, {withCredentials: true});
 };
 
 const getEntries = async () => {
-    return await api.get("/entries");
+    return await api.get("/entries", {withCredentials: true});
 };
 
 const apis = {

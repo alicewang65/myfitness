@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import api from "../api";
+import api from "../api.js";
+import { NavBar } from './NavBar.jsx';
 
 export function Register(props) {
     const navigate = useNavigate();
@@ -32,6 +33,7 @@ export function Register(props) {
 
     return (
         <div>
+            <NavBar />
             <h1>Register</h1>
             {error === "" ? <p>{error}</p> : <p></p>}
             <form onSubmit={submit}>

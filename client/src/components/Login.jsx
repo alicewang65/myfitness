@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import api from "../api";
+import api from "../api.js";
+import { NavBar } from './NavBar.jsx';
 
 export function Login(props) {
     const navigate = useNavigate();
@@ -28,12 +29,14 @@ export function Login(props) {
             console.log("setting error");
             setError(res.data.error);
         } else {
-            navigate("/user");
+            console.log(res.data);
+            navigate("/entries/" + res.data.id);
         }
     };
 
     return (
         <div>
+            <NavBar />
             <h1>Login</h1>
             {error === "" ? <p></p> : <p>{error}</p>}
             <form onSubmit={submit}>
