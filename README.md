@@ -148,8 +148,8 @@ An Example Entry:
 These are links to tutorials that were referenced for specific implementations. Code from these tutorials was referenced and potentially adapted for use in my program.
 
 1. [Passport with MERN Stack Tutorial](https://www.youtube.com/watch?v=IUw_TgRhTBE) - Referenced tutorial to figure out how to integrate Passport within the MERN stack
-    1. Passport local strategy set up [here](./server/passport_config.js)
-    2. Implementing login route [here](./server/auth.js)
+    1. Passport local strategy set up [here](./passport_config.js)
+    2. Implementing login route [here](./auth.js)
 2. [Tutorial on the MERN Stack](https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66) - Mainly referenced section 2.1 on integrating BE and FE
     1. Code for api routes [here](./client/src/api.js)
 3. [Setting up react-router](https://reactrouter.com/docs/en/v6/getting-started/tutorial) - Mainly referenced to set up [index.js](./client/src/index.js)
