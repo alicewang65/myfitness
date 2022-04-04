@@ -142,6 +142,7 @@ These are links to tutorials that were referenced for specific implementations. 
 2. [Tutorial on the MERN Stack](https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66) - Mainly referenced section 2.1 on integrating BE and FE
     1. Code for api routes [here](./client/src/api.js)
 3. [Setting up react-router](https://reactrouter.com/docs/en/v6/getting-started/tutorial) - Mainly referenced to set up [index.js](./client/src/index.js)
+4. [Deploying using Heroku and MongoDB Atlas Tutorial with a MERN stack](https://coursework.vschool.io/deploying-mern-app-to-heroku/) - LIFESAVER of a tutorial!!
 
 
 ### Troubleshooting Links
