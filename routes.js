@@ -53,7 +53,8 @@ router.get("/entries", (req, res) => {
             if (err) {
                 res.json({"error": "Error finding log."});
             } else {
-                res.json({"entries": log.items});
+                const newestFirst = log.items.reverse();
+                res.json({"entries": newestFirst});
             }
         });
     }

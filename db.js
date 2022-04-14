@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 require("dotenv").config();
 // URLSlugs = require('mongoose-url-slugs'),
-// passportLocalMongoose = require('passport-local-mongoose');
 
 // User Schema, stores their username, password, and a
 // reference to their (workout) log
@@ -26,7 +25,7 @@ const Log = new mongoose.Schema({
 	items: [Entry]
 });
 
-// User.plugin(passportLocalMongoose);
+
 // Log.plugin(URLSlugs('user'));
 // Entry.plugin(URLSlugs('title'));
 
