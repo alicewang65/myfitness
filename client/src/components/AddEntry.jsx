@@ -35,7 +35,7 @@ export function AddEntry() {
         });
 
         if (Object.hasOwnProperty.call(res.data, "status")) {
-            navigate("/entries/" + params.id);
+            navigate("/entries/" + params.username);
         }
     };
 

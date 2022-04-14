@@ -2,7 +2,8 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "http://localhost:3000/",
-    // baseURL: "https://alice-wang-ait-final-project.herokuapp.com/"
+    // baseURL: "https://alice-wang-ait-final-project.herokuapp.com/",
+    withCredentials: true
 });
 
 const registerUser = async (payload) => {
@@ -10,20 +11,24 @@ const registerUser = async (payload) => {
 };
 
 const loginUser = async (payload) => {
-    return await api.post("/login", payload, {withCredentials: true});
+    return await api.post("/login", payload);
 };
 
 const getUser = async () => {
     console.log("get user");
-    return await api.get("/user", {withCredentials: true});
+    return await api.get("/user");
 };
 
 const addEntry = async (payload) => {
-    return await api.post("/create", payload, {withCredentials: true});
+    return await api.post("/create", payload);
 };
 
 const getEntries = async () => {
-    return await api.get("/entries", {withCredentials: true});
+    return await api.get("/entries");
+};
+
+const getEntry = async (payload) => {
+    return await api.get("/entry", {params: {"id": payload}});
 };
 
 const apis = {
@@ -31,7 +36,8 @@ const apis = {
     loginUser,
     getUser,
     addEntry,
-    getEntries
+    getEntries,
+    getEntry
 };
 
 export default apis;

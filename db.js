@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 require("dotenv").config();
-// URLSlugs = require('mongoose-url-slugs'),
 
 // User Schema, stores their username, password, and a
 // reference to their (workout) log
@@ -25,9 +24,6 @@ const Log = new mongoose.Schema({
 	items: [Entry]
 });
 
-
-// Log.plugin(URLSlugs('user'));
-// Entry.plugin(URLSlugs('title'));
 
 mongoose.model('User', User);
 mongoose.model('Log', Log);

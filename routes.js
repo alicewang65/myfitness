@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require("mongoose");
 const Entry = mongoose.model("Entry");
-const Log = mongoose.model("Log")
-;
+const Log = mongoose.model("Log");
 
 router.post("/create", (req, res) => {
     // form requires fields to be filled before submitting
@@ -55,6 +54,56 @@ router.get("/entries", (req, res) => {
             } else {
                 const newestFirst = log.items.reverse();
                 res.json({"entries": newestFirst});
+            }
+        });
+    }
+});
+
+router.get("/entry", (req, res) => {
+    console.log("/entry");
+
+    if (!Object.hasOwnProperty.call(req, "user")) {
+        res.json({"error": "User hasn't logged in."});
+    } else {
+        // id of user's log
+        const id = req.user.log;
+        const entryID = req.query.id;
+        
+        Log.findById(id, (err, log) => {
+            console.log(log);
+            if (err) {
+                res.json({"error": "Error finding log."});
+            } else {
+                const entry = (log.items).find((ele) => { return ele["_id"].toString() === entryID });
+                // console.log(entry);
+                res.json({"entry": entry});
+            }
+        });
+    }
+});
+
+router.delete("/delete", (req, res) => {
+    console.log("/delete");
+
+    if (!Object.hasOwnProperty.call(req, "user")) {
+        res.json({"error": "User hasn't logged in."});
+    } else {
+        const id = req.user.log;
+        const entryID = req.body.id;
+
+        Log.findById(id, (err, log) => {
+            console.log(log);
+            if (err) {
+                res.json({"error": "Error finding log."});
+            } else {
+                const entries = log.items;
+                const deleteIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID });
+
+                entries.splice(deleteIndex, 1);
+                
+
+                // console.log(entry);
+                res.json({"entry": entry});
             }
         });
     }

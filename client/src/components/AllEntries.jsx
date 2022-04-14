@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import api from "../api.js";
 import { NavBarLoggedIn } from './NavBarLoggedIn.jsx';
 
 export function AllEntries() {
+    const params = useParams();
     const [entries, setEntries] = useState([]);
     const [grid, setGrid] = useState(true);
 
@@ -30,6 +32,10 @@ export function AllEntries() {
             }
         }
 
+        console.log(gridRow);
+
+        console.log(gridRow[0][0]["_id"]);
+
         setEntries(gridRow);
     };
 
@@ -43,7 +49,7 @@ export function AllEntries() {
                             row.map((ele) => {
                                 return (
                                     <div className="col">
-                                        <p>Title: {ele.title}</p>
+                                        <p><Link to={"/entry/" + params.username + "/" + ele["_id"]}>Title: {ele.title}</Link></p>
                                         <p>Date: {ele.date}</p>
                                         <p>Description: {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}</p>
                                     </div>
@@ -63,7 +69,7 @@ export function AllEntries() {
                     row.map(ele => {
                         return (
                             <div>
-                                <p>Title: {ele.title}</p>
+                                <p><Link to={"/entry/" + params.username + "/" + ele["_id"]}>Title: {ele.title}</Link></p>
                                 <p>Date: {ele.date}</p>
                                 <p>Description: {ele.description}</p>
                                 <hr/>

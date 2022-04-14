@@ -30,7 +30,7 @@ export function Login(props) {
             setError(res.data.error);
         } else {
             console.log(res.data);
-            navigate("/entries/" + res.data.id);
+            navigate("/entries/" + res.data.username);
         }
     };
 
