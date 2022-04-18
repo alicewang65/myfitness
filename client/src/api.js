@@ -31,13 +31,25 @@ const getEntry = async (payload) => {
     return await api.get("/entry", {params: {"id": payload}});
 };
 
+const deleteEntry = async (payload) => {
+    console.log(payload);
+
+    return await api.delete("/delete", {params: {"id": payload}});
+}
+
+const updateEntry = async (payload) => {
+    return await api.post("/update", payload);
+}
+
 const apis = {
     registerUser,
     loginUser,
     getUser,
     addEntry,
     getEntries,
-    getEntry
+    getEntry,
+    deleteEntry,
+    updateEntry
 };
 
 export default apis;

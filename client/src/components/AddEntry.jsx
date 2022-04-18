@@ -66,7 +66,8 @@ export function AddEntry() {
                         name="entry"
                         onChange={entryHandler}
                         rows="5"
-                        placeholder="Enter your training entry here..."/>
+                        placeholder="Enter your training entry here..."
+                        required/>
                 </section>
                 <button type="submit">Add Entry</button>
             </form>

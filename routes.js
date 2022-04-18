@@ -89,7 +89,13 @@ router.delete("/delete", (req, res) => {
         res.json({"error": "User hasn't logged in."});
     } else {
         const id = req.user.log;
-        const entryID = req.body.id;
+        const entryID = req.query.id; 
+        console.log(req.query);
+        console.log(entryID);
+
+        // Entry.find({_id: entryID}, (err, entry) => {
+        //     console.log(entry);
+        // });
 
         Log.findById(id, (err, log) => {
             console.log(log);
@@ -100,10 +106,70 @@ router.delete("/delete", (req, res) => {
                 const deleteIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID });
 
                 entries.splice(deleteIndex, 1);
-                
 
-                // console.log(entry);
-                res.json({"entry": entry});
+                // update user's log
+                log.items = entries;
+                log.save((err) => {
+                    if (err) {
+                        res.json({"error": "Error removing item from log."});
+                    } else {
+                        // delete entry from database as well
+                        Entry.findOneAndDelete({_id: entryID}, (err, deletedEntry) => {
+                            if (err) {
+                                res.json({"error": "Error deleting entry from database."});
+                            } else {
+                                console.log(deletedEntry);
+                                res.json({"status": "Successfully removed item from log."});
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+});
+
+router.post("/update", async (req, res) => {
+    console.log("/update");
+
+    if (!Object.hasOwnProperty.call(req, "user")) {
+        res.json({"error": "User hasn't logged in."});
+    } else {
+        const id = req.user.log;
+        const entryID = req.body.id;
+
+        const update = {
+            title: req.body.title,
+            date: req.body.date,
+            description: req.body.entry
+        }
+
+        Entry.findOneAndUpdate({_id: entryID}, update, {new : true}, (err, updatedEntry) => {
+            if (err) {
+                res.json({"error": "Error finding and updating entry."});
+            } else {
+                Log.findById(id, (err, log) => {
+                    if (err) {
+                        res.json({"error": "Error finding log."});
+                    } else {
+                        const entries = log.items;
+                        console.log(entries);
+        
+                        const updateIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID });
+                        if (updateIndex === -1) {
+                            res.json({"error": "Error: Entry doesn't exist in log."});
+                        } else {
+                            entries.splice(updateIndex, 1, updatedEntry);
+                            log.save((err) => {
+                                if (err) {
+                                    res.json({"error": "Error saving updated entry in log."});
+                                } else {
+                                    res.json({"status": "Successfully updated entry."});
+                                }
+                            });
+                        }
+                    }
+                });
             }
         });
     }
