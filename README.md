@@ -19,7 +19,7 @@ Significant Progress on Research Topics:
 2. I have used my front-end framework, React. This milestone, I restructured my code to have better security (namely, seeing if a user is logged in and redirecting them to the appropriate routes depending on if they're logged in or not)
 3. I have customized Bootstrap through the theme-colors and font-family. Code for that can be seen [here](./client/src/scss/custom.scss)
 
-Code Changes: [HERE](https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/compare/706a5c9acc2a445776086a8216546b195f3f244a..a011eb3acd31f4139fc243e412d3d6b5fa34e374)
+Code Changes: [HERE](https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/compare/706a5c9acc2a445776086a8216546b195f3f244a..5744e0819b24b5d109f9913134f2033d6e4d94d6)
 
 ## Milestone 2 Update
 
