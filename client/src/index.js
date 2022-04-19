@@ -2,8 +2,9 @@ import React from 'react';
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// bootstrap imports
-import "bootstrap/dist/css/bootstrap.min.css";
+// customized bootstrap imports
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "./scss/custom.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 // component imports

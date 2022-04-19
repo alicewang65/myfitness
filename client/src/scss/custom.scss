@@ -1,0 +1,20 @@
+// color pallette generated from https://huemint.com/bootstrap-basic/#palette=cfe2f5-ffffff-0f0f10-213f6a-b94b4e-706de2
+
+$theme-colors: (
+    "light":      #cfe2f5,
+    "dark":       #0f0f10,
+    "primary":    #213f6a,
+    "secondary":  #b94b4e,
+    "info":       #706de2,
+    "success":    #24995b,
+    "warning":    #dfc827,
+    "danger":     #ec1c14,
+);
+
+// import for font
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+$font-family-base: 'Source Sans Pro', sans-serif;
+
+
+// import Bootstrap's source Sass files
+@import "../../node_modules/bootstrap/scss/bootstrap";
