@@ -16,7 +16,8 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:8000",
+    origin: process.env.ORIGIN,
+    // origin: "http://localhost:8000",
     // origin: "https://alice-wang-ait-final-project.herokuapp.com/",
     credentials: true
 }));

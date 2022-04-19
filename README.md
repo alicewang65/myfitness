@@ -174,6 +174,7 @@ These are links to specific issues I ran into while implementing my web app. The
 1. [Stack Overflow Post](https://stackoverflow.com/questions/63152640/passport-js-sessions-react-accessing-req-user-from-any-route-other-than-th) - Issue with req.user information not persisting after logging in (using Passport). Resolved by adding ```{withCredentials: true}``` to the requesets that need the user info AND the login request (most important). Link to code where I added this [here](./client/src/api.js)
 2. [Imports for Customizing Bootstrap](https://designmodo.com/bootstrap-react-sass/#installing-bootstrap-5) - Had an issue with what imports/general configuration to get customized Bootstrap set up. Referred to this for the import statements. Link to code where I used this info is [here](./client/src/index.js) and [here](./client/src/scss/custom.scss)
 3. [Custom Fonts for Bootstrap](https://bootstrap.themes.guide/how-to-create-bootstrap-themes.html) - Referenced part of this article to see how to import custom fonts for Bootstrap. Link to code where I used this info is [here](./client/src/scss/custom.scss)
+4. [Setting environment variables for React](https://create-react-app.dev/docs/adding-custom-environment-variables/) - Referenced to help ease development with urls for my api
 
 ### Documentation
 
