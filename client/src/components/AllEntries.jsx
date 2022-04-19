@@ -1,17 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from "../api.js";
 import { NavBarLoggedIn } from './NavBarLoggedIn.jsx';
 
 export function AllEntries() {
-    const params = useParams();
+    const navigate = useNavigate();
+
     const [entries, setEntries] = useState([]);
     const [grid, setGrid] = useState(true);
 
     useEffect(() => {
-        // implement checking if user is logged in before doing ANYTHING
-
+        async function checkUser() {
+            // check if user is logged in
+            const res = await api.getUser();
+            if (Object.hasOwnProperty.call(res.data, "error")) {
+                navigate("/home");
+            }
+        }
+        checkUser();
         getEntries();
     }, []);
 
@@ -49,7 +56,7 @@ export function AllEntries() {
                             row.map((ele) => {
                                 return (
                                     <div className="col">
-                                        <p><Link to={"/entry/" + params.username + "/" + ele["_id"]}>Title: {ele.title}</Link></p>
+                                        <p><Link to={"/entry/" + ele["_id"]}>Title: {ele.title}</Link></p>
                                         <p>Date: {ele.date}</p>
                                         <p>Description: {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}</p>
                                     </div>
@@ -69,7 +76,7 @@ export function AllEntries() {
                     row.map(ele => {
                         return (
                             <div>
-                                <p><Link to={"/entry/" + params.username + "/" + ele["_id"]}>Title: {ele.title}</Link></p>
+                                <p><Link to={"/entry/" + ele["_id"]}>Title: {ele.title}</Link></p>
                                 <p>Date: {ele.date}</p>
                                 <p>Description: {ele.description}</p>
                                 <hr/>

@@ -25,7 +25,7 @@ module.exports = (app, passport) => {
                         console.log(req.user);
                         
                         // res.setHeader("Access-Control-Allow-Credentials", "true");
-                        res.json({"username": req.user.username, "status": "Successfully logged in."});
+                        res.json({"username": req.user.username, "success": "Successfully logged in."});
                         // console.log(req.user);
                     }
                 });
@@ -56,13 +56,18 @@ module.exports = (app, passport) => {
                             if (err) {
                                 res.json({"error": "Error saving user to database."});
                             } else {
-                                res.json({"status": "Sucessfully registered user."});
+                                res.json({"success": "Sucessfully registered user."});
                             }
                         });
                     }
                 });
             }
         });
+    });
+
+    app.post("/logout", (req, res) => {
+        req.logout();
+        res.json({"success": "Logged out."});
     });
     
     // app.post("/register", (req, res) => {

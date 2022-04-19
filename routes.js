@@ -28,7 +28,7 @@ router.post("/create", (req, res) => {
                         if (err) {
                             res.json({"error": "Error adding entry to log."});
                         } else {
-                            res.json({"status": "Successfully added entry"});
+                            res.json({"success": "Successfully added entry"});
                         }
                     });
                 });
@@ -119,7 +119,7 @@ router.delete("/delete", (req, res) => {
                                 res.json({"error": "Error deleting entry from database."});
                             } else {
                                 console.log(deletedEntry);
-                                res.json({"status": "Successfully removed item from log."});
+                                res.json({"success": "Successfully removed item from log."});
                             }
                         });
                     }
@@ -164,7 +164,7 @@ router.post("/update", async (req, res) => {
                                 if (err) {
                                     res.json({"error": "Error saving updated entry in log."});
                                 } else {
-                                    res.json({"status": "Successfully updated entry."});
+                                    res.json({"success": "Successfully updated entry."});
                                 }
                             });
                         }

@@ -30,7 +30,14 @@ export function SingleEntry() {
     };
 
     useEffect(() => {
-        // implement checking if user is logged in before doing ANYTHING
+        async function checkUser() {
+            // check if user is logged in
+            const res = await api.getUser();
+            if (Object.hasOwnProperty.call(res.data, "error")) {
+                navigate("/home");
+            }
+        }
+        checkUser();
         getSingleEntry();
     }, []);
 
@@ -42,8 +49,8 @@ export function SingleEntry() {
         if (Object.hasOwnProperty.call(res.data, "error")) {
             console.log("error!");
         } else {
-            console.log(res.data.status);
-            navigate("/entries/" + params.username);
+            console.log(res.data.success);
+            navigate("/entries");
         }
     };
 
@@ -61,8 +68,8 @@ export function SingleEntry() {
             console.log("error! updating entry!");
             console.log(res.data.error);
         } else {
-            // console.log(res.data.status);
-            navigate("/entries/" + params.username);
+            // console.log(res.data.success);
+            navigate("/entries");
         }
     };
 

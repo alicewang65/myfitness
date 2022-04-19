@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import api from "../api.js";
+import api from "../../api.js";
 
 export function User() {
     const [userData, setUserData] = useState({});

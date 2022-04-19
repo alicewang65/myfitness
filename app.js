@@ -35,10 +35,13 @@ app.get("/", (req, res) => {
     // res.send("Hello World!");
 });
 
+// route to check if user is logged in
 app.get("/user", (req, res) => {
-    console.log("user route");
-    console.log(req.user);
-    res.json({"message": "hello"});
+    if (Object.hasOwnProperty.call(req, "user")) {
+        res.json({"success": "Logged in."});
+    } else {
+        res.json({"error": "Not logged in."});
+    }
 });
 
 const routes = require("./routes.js");

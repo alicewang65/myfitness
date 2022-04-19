@@ -14,8 +14,11 @@ const loginUser = async (payload) => {
     return await api.post("/login", payload);
 };
 
+const logOutUser = async () => {
+    return await api.post("/logout");
+};
+
 const getUser = async () => {
-    console.log("get user");
     return await api.get("/user");
 };
 
@@ -44,6 +47,7 @@ const updateEntry = async (payload) => {
 const apis = {
     registerUser,
     loginUser,
+    logOutUser,
     getUser,
     addEntry,
     getEntries,

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import api from "../api.js";
 import { NavBarLoggedIn } from './NavBarLoggedIn.jsx';
 
@@ -11,7 +10,16 @@ export function AddEntry() {
     const [date, setDate] = useState("");
     const [entry, setEntry] = useState("");
 
-    const params = useParams();
+    useEffect(() => {
+        async function checkUser() {
+            // check if user is logged in
+            const res = await api.getUser();
+            if (Object.hasOwnProperty.call(res.data, "error")) {
+                navigate("/home");
+            }
+        }
+        checkUser();
+    }, []);
 
     const titleHandler = (e) => {
         setTitle(e.target.value);
@@ -34,8 +42,8 @@ export function AddEntry() {
             entry
         });
 
-        if (Object.hasOwnProperty.call(res.data, "status")) {
-            navigate("/entries/" + params.username);
+        if (Object.hasOwnProperty.call(res.data, "success")) {
+            navigate("/entries");
         }
     };
 

@@ -1,15 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import api from "../api.js";
 import { NavBar } from './NavBar.jsx';
 
-export function Login(props) {
+export function Login() {
     const navigate = useNavigate();
 
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
     const [error, setError] = useState("");
+
+    useEffect(() => {
+        async function checkUser() {
+            // check if user is logged in
+            const res = await api.getUser();
+            if (Object.hasOwnProperty.call(res.data, "success")) {
+                navigate("/home");
+            }
+        }
+        checkUser();        
+    }, []);
 
     const userHandler = (e) => {
         setUser(e.target.value);
@@ -30,7 +41,7 @@ export function Login(props) {
             setError(res.data.error);
         } else {
             console.log(res.data);
-            navigate("/entries/" + res.data.username);
+            navigate("/entries");
         }
     };
 
