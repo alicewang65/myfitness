@@ -2,6 +2,25 @@
 
 (Final web app name still to be finalized!)
 
+## Milestone 3 Update
+
+To access the forms, you must be logged in ("/login"). The login credentials have been included in the Google form, but are also here - username: "test", password: "password").
+
+Two working forms/AJAX interactions (besides login/registration):
+
+1. ("/entries") - This route shows all the user's entries. Implemented by making a background request. Code for this can be viewed [here](./client/src/components/AllEntries.jsx) and [here](./client/src/api.js)
+2. ("/create") - This route is for adding an entry to a user's log. After submitting the form, the user will be redirected to /entries, where the newly added entry can be viewed. Code for this can be viewed [here](./client/src/components/AddEntry.jsx) and [here](./client/src/api.js)
+3. ("/entry/625ee5f671a805db48ff86e5") - This route is for modifying (including deleting) a specific entry. After modifying or deleting, the user will be redirected to /entries, where the results of such actions can be viewed. Code for this can be viewed [here](./client/src/components/SingleEntry.jsx) and [here](./client/src/api.js)
+    1. Note: I think this might count as two different interactions because there is an option for modifying or deleting, which directs to a different route and action on the back-end.
+
+
+Significant Progress on Research Topics:
+1. As of Milestone 2, I had pretty much fully integrated Passport into my web app. For this milestone, I finished implementing logging out, which pretty much wraps up Passport. Code for that can be viewed [here](./passport_config.js) and [here](./auth.js)
+2. I have used my front-end framework, React. This milestone, I restructured my code to have better security (namely, seeing if a user is logged in and redirecting them to the appropriate routes depending on if they're logged in or not)
+3. I have customized Bootstrap through the theme-colors and font-family. Code for that can be seen [here](./client/src/scss/custom.scss)
+
+Code Changes: [HERE](https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/compare/706a5c9acc2a445776086a8216546b195f3f244a..a011eb3acd31f4139fc243e412d3d6b5fa34e374)
+
 ## Milestone 2 Update
 
 To access the form that isn't login/registration, you do need to be LOGGED IN. (Login credentials have been included in Google form, but they are also here -- username: "test", password: "password")
@@ -72,16 +91,13 @@ An Example Entry:
 /login - page for users to login to their account
 ![login/register page](documentation/login.png)
 
-/entries/slug - page for showing all entries
+/entries - page for showing all entries
 ![logs page](documentation/entries.png)
 
 /create - page for creating a new entry
 ![create an entry page](documentation/create.png)
 
-/view/slug - page for viewing an entry
-![view entry page](documentation/entry.png)
-
-/modify - page for modifying an entry
+/entry/:id - page for modifying an entry
 ![modify entry page](documentation/modify.png)
 
 
@@ -116,25 +132,20 @@ An Example Entry:
     * Bootstrap makes it easy to quickly integrate CSS into different elements (overall makes it easier to have a nice looking page)
     * Per the requirements, I will be configuring a theme and playing around with other customization
     * Point value assigned based on the requirements
-* (3 points) Formik --- PROBABLY NOT GOING TO DO BUT NOT TOTALLY SURE YET...
-    * Formik is a library that helps make client-side form validation easier, specifically for React apps
-    * For a more integrated and smooth user experience, I'm using Formik for the form validation, especially since my site will consist of quite a few forms.
-    * I'm not totally sure if it the errors are integrated into the DOM (following up on that in the next few days with Professor Versoza)
-    * Point value assigned based on the requirements
 
-15 points total out of 8 required points
+12 points total out of 8 required points
 
 
 ## Links to Project
 
 ### Backend
-* [main page for backend](.index.js)
-* [page for additional routes](.routes.js)
-* [passport local strategy setup](.passport_config.js)
-* [login/register routes](.auth.js)
+* [main page for backend](./app.js)
+* [page for additional routes](./routes.js)
+* [passport local strategy setup](./passport_config.js)
+* [login/register routes](./auth.js)
 
 ### Frontend
-* [main page for frontend](./client/index.js)
+* [main page for frontend](./client/src/index.js)
 * [folder of components](./client/src/components)
 * [api for interacting with backend](./client/src/api.js)
 
@@ -161,15 +172,23 @@ These are links to tutorials that were referenced for specific implementations. 
 These are links to specific issues I ran into while implementing my web app. These articles/posts helped me resolved bugs and troubleshoot general errors.
 
 1. [Stack Overflow Post](https://stackoverflow.com/questions/63152640/passport-js-sessions-react-accessing-req-user-from-any-route-other-than-th) - Issue with req.user information not persisting after logging in (using Passport). Resolved by adding ```{withCredentials: true}``` to the requesets that need the user info AND the login request (most important). Link to code where I added this [here](./client/src/api.js)
+2. [Imports for Customizing Bootstrap](https://designmodo.com/bootstrap-react-sass/#installing-bootstrap-5) - Had an issue with what imports/general configuration to get customized Bootstrap set up. Referred to this for the import statements. Link to code where I used this info is [here](./client/src/index.js) and [here](./client/src/scss/custom.scss)
+3. [Custom Fonts for Bootstrap](https://bootstrap.themes.guide/how-to-create-bootstrap-themes.html) - Referenced part of this article to see how to import custom fonts for Bootstrap. Link to code where I used this info is [here](./client/src/scss/custom.scss)
 
 ### Documentation
 
 These are links to general documentation for different libraries/features used throughout my app. There wasn't specific code based off these. Rather, these docs were mainly used to figure out how specific methods work.
 
 1. [Passport Documentation](http://passportjs.org/docs) -- Being completely honest, this documentation didn't help at all. Very little useful info :(
+    1. Used mainly for code in [auth.js](./auth.js)
 2. [React Documentation](https://reactjs.org/docs/getting-started.html)
+    1. Used throughout client-side code, see the client folder
 3. [React Router Documentation](https://reactrouter.com/docs/en/v6)
+    1. Used throughout client-side code, see the client folder
 4. [Bootstrap Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-5. [Formik Documentation](https://formik.org/docs/overview)
+    1. Used throughout client-side code, see client folder, specifically components folder
+5. [Bootstrap Customization](https://getbootstrap.com/docs/5.1/customize/sass/)
+    1. Used to customize Bootstrap, see [custom.scss](./client/src/scss/custom.scss)
 6. [Axios Documentation](https://axios-http.com/docs/intro)
+    1. Used mainly for api-related code, see [api.js](./client/src/api.js)
 7. [Markdown Cheatsheet](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md) -- referenced to format this README
