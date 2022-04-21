@@ -55,10 +55,20 @@ export function AllEntries() {
                         {
                             row.map((ele) => {
                                 return (
-                                    <div className="col">
-                                        <p><Link to={"/entry/" + ele["_id"]}>Title: {ele.title}</Link></p>
-                                        <p>Date: {ele.date}</p>
-                                        <p>Description: {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}</p>
+                                    <div className="col-md-4 my-2">
+                                        <div className="card border-primary personal-card">
+                                            <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">
+                                                        {ele.title}
+                                                    </h5>
+                                                    <h6 className="card-subtitle mb-2 text-muted">{ele.date}</h6>
+                                                    <p className="card-text">
+                                                        {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}
+                                                    </p>
+                                                </div>
+                                            </Link>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -75,11 +85,20 @@ export function AllEntries() {
                 return (
                     row.map(ele => {
                         return (
-                            <div>
-                                <p><Link to={"/entry/" + ele["_id"]}>Title: {ele.title}</Link></p>
-                                <p>Date: {ele.date}</p>
-                                <p>Description: {ele.description}</p>
-                                <hr/>
+                            <div className="my-2">
+                                <div className="card border-primary personal-card">
+                                    <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
+                                        <div className="card-body">
+                                            <h5 className="card-title">
+                                                {ele.title}
+                                            </h5>
+                                            <h6 className="card-subtitle mb-2 text-muted">{ele.date}</h6>
+                                            <p className="card-text">
+                                                {ele.description}
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>
                         )
                     })
@@ -97,11 +116,14 @@ export function AllEntries() {
     };
 
     return (
-        <div>
+        <div className="m-4">
             <NavBarLoggedIn />
-            <h1>See Entries</h1>
-            <button id="grid" type="button" onClick={changeToGrid}>Grid</button>
-            <button id="list" type="butotn" onClick={changeToList}>List</button>
+            <h1 className="my-3 text-center">All Entries</h1>
+            <div className="d-flex flex-row-reverse mb-2 mt-2">
+                <button className="btn btn-primary" id="grid" type="button" onClick={changeToGrid}>Grid</button>
+                <button className="btn btn-primary me-2" id="list" type="button" onClick={changeToList}>List</button>
+            </div>
+            
 
             {
                 grid ? getGrid() : getList()

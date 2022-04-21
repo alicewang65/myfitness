@@ -23,7 +23,7 @@ export function NavBarLoggedIn() {
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <Link class="nav-link" to={"/entries"}>Entries</Link>
+                            <Link class="nav-link" to={"/entries"}>All Entries</Link>
                         </li>
                         <li class="nav-item">
                             <Link class="nav-link" to={"/create"}>Add Entry</Link>

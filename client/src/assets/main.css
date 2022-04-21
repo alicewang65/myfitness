@@ -9,3 +9,8 @@
     overflow: hidden;
     background-image: url("./watercolor_background.jpg");
 }
+
+.personal-card:hover {
+    background-color: #cfe2f5;
+    border-color: #cfe2f5 !important;
+}
