@@ -46,29 +46,37 @@ export function Login() {
     };
 
     return (
-        <div>
+        <div className="m-4">
             <NavBar />
-            <h1>Login</h1>
-            {error === "" ? <p></p> : <p>{error}</p>}
-            <form onSubmit={submit}>
-                <section>
-                    <label for="username">Username</label>
-                    <input id="username" 
-                        name="username" 
-                        type="text" 
-                        onChange={userHandler}
-                        required autofocus />
-                </section>
-                <section>
-                    <label for="current-password">Password</label>
-                    <input id="current-password" 
-                        name="password" 
-                        type="password" 
-                        onChange={passHandler}
-                        required />
-                </section>
-                <button type="submit">Log In</button>
-            </form>
+            <h1 className="my-3 text-center">Login</h1>
+            <div className="w-50 mx-auto">
+                <form onSubmit={submit}>
+                    <div className="form-group mt-3">
+                        <label for="username">Username</label>
+                        <input className="form-control"
+                            id="username" 
+                            name="username" 
+                            type="text" 
+                            onChange={userHandler}
+                            required/>
+                    </div>
+                    <div className="form-group mt-3">
+                        <label for="current-password">Password</label>
+                        <input className="form-control"
+                            id="current-password" 
+                            name="password" 
+                            type="password" 
+                            onChange={passHandler}
+                            required />
+                    </div>
+                    <div className="mt-3">
+                        {error !== "" ? <p className="text-danger">{error}</p> : <p></p>}
+                    </div>
+                    <div className="text-center mt-3">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
+                </form>   
+            </div>
         </div>
     );
 }
