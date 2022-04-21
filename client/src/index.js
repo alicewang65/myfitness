@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import "./scss/custom.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+// import css
+import "./assets/main.css"
+
 // component imports
 import { Home } from './components/Home';
 import { NotFound } from './components/NotFound';

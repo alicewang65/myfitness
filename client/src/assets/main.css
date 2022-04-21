@@ -1,0 +1,11 @@
+.no-button {
+    border: none;
+    background-color: inherit;
+}
+
+.pic-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-image: url("./watercolor_background.jpg");
+}
