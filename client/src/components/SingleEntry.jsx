@@ -87,42 +87,49 @@ export function SingleEntry() {
 
     
     return (
-        <div>
+        <div className="m-4">
             <NavBarLoggedIn />
-            <h1>Modify/Delete Your Entry</h1>
-            <form>
-                <section>
-                    <label for="title">Title</label>
-                    <input id="title" 
-                        name="title" 
-                        type="text" 
-                        onChange={titleHandler}
-                        value={title}
-                        required />
-                </section>
-                <section>
-                    <label for="date">Date</label>
-                    <input id="date" 
-                        name="date" 
-                        type="date" 
-                        onChange={dateHandler}
-                        value={date}
-                        required />
-                </section>
-                <section>
-                    <label for="entry">Entry</label>
-                    <textarea id="entry"
-                        name="entry"
-                        onChange={descriptionHandler}
-                        rows="5"
-                        value={description}
-                        required/>
-                </section>
-                <button type="button" onClick={deleteSingleEntry}>Delete</button>
-                <button type="button" onClick={modifySingleEntry}>Modify</button>
-            </form>
+            <h1 className="my-3 text-center">Modify/Delete Your Entry</h1>
 
-            
+            <div className="w-75 mx-auto">
+                <form>
+                    <div className="form-group mt-3">
+                        <label for="title">Title</label>
+                        <input className="form-control"
+                            id="title" 
+                            name="title" 
+                            type="text" 
+                            onChange={titleHandler}
+                            value={title}
+                            required />
+                    </div>
+                    <div className="form-group mt-3">
+                        <label for="date">Date</label>
+                        <input className="form-control"
+                            id="date" 
+                            name="date" 
+                            type="date" 
+                            onChange={dateHandler}
+                            value={date}
+                            required />
+                    </div>
+                    <div className="form-group mt-3">
+                        <label for="entry">Entry</label>
+                        <textarea className="form-control"
+                            id="entry"
+                            name="entry"
+                            onChange={descriptionHandler}
+                            rows="5"
+                            value={description}
+                            required/>
+                    </div>
+                    <div className="mt-3 text-center">
+                        <button type="button" className="btn btn-primary me-3" onClick={deleteSingleEntry}>Delete</button>
+                        <button type="button" className="btn btn-primary" onClick={modifySingleEntry}>Modify</button>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
     );
 
