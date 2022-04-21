@@ -1,23 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import api from "../api.js";
 import { NavBar } from "./NavBar";
 import { NavBarLoggedIn } from "./NavBarLoggedIn";
 
 export function Home() {
     const [loggedIn, setLoggedIn] = useState(false);
-
+    const location = useLocation();
+    console.log("location", location.state);
 
     useEffect(() => {
+        console.log("useEffect...");
         async function checkUser() {
             // check if user is logged in
             const res = await api.getUser();
+            console.log(res.data);
             if (Object.hasOwnProperty.call(res.data, "success")) {
                 setLoggedIn(true);
+            } else {
+                setLoggedIn(false);
             }
         }
         checkUser();
-    }, []);
+    });
 
     return(
         <div className="m-4">

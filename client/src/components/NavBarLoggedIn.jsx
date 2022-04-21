@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import api from "../api.js";
 
 
@@ -9,7 +9,7 @@ export function NavBarLoggedIn() {
     const logOut = async () => {
         const res = await api.logOutUser();
         if (Object.hasOwnProperty.call(res.data, "success")) {
-            navigate("/home");
+            navigate("/home", {state: "loggedout"});
         }
     };
 
@@ -30,7 +30,6 @@ export function NavBarLoggedIn() {
                         </li>
                         <li class="nav-item">
                             <button class="nav-link no-button" onClick={logOut}>Log Out</button>
-                            {/* <Link class="nav-link" onClick={logOut}>Log Out</Link> */}
                         </li>
                     </ul>
                 </div>
