@@ -28,7 +28,7 @@ router.post("/create", (req, res) => {
                         if (err) {
                             res.json({"error": "Error adding entry to log."});
                         } else {
-                            res.json({"success": "Successfully added entry"});
+                            res.json({"success": "Successfully added entry."});
                         }
                     });
                 });

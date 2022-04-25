@@ -4,10 +4,6 @@ const Log = mongoose.model("Log");
 const argon2 = require("argon2");
 
 module.exports = (app, passport) => {
-    // app.get("/login", (req, res) => {
-    //     console.log(req.user);
-    // });
-
     app.post("/login", (req, res, next) => {
         passport.authenticate("local", (err, user, info) => {
             console.log("passport authenticate");
@@ -24,8 +20,7 @@ module.exports = (app, passport) => {
                         console.log("authenticate method req user");
                         console.log(req.user);
                         
-                        // res.setHeader("Access-Control-Allow-Credentials", "true");
-                        res.json({"username": req.user.username, "success": "Successfully logged in."});
+                        res.json({"success": "Successfully logged in."});
                         // console.log(req.user);
                     }
                 });
@@ -69,11 +64,4 @@ module.exports = (app, passport) => {
         req.logout();
         res.json({"success": "Logged out."});
     });
-    
-    // app.post("/register", (req, res) => {
-        
-    //     console.log(req);
-    //     console.log(req.body.username);
-    //     console.log(req.body.password);
-    // });
 };
