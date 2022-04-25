@@ -9,6 +9,7 @@ export function AllEntries() {
 
     const [entries, setEntries] = useState([]);
     const [grid, setGrid] = useState(true);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         async function checkUser() {
@@ -27,23 +28,27 @@ export function AllEntries() {
         // console.log("entriesssss");
         // console.log(res.data);
 
-        const gridRow = [];
-        const temp = res.data.entries;
+        if (Object.hasOwnProperty.call(res.data, "error")) {
+            setError(res.data.error);
+        } else {
+            const gridRow = [];
+            const temp = res.data.entries;
 
-        // split elements into groups of 3
-        for (let ii = 0; ii < temp.length; ii += 3) {
-            if (ii + 3 > temp.length) {
-                gridRow.push(temp.slice(ii, temp.length));
-            } else {
-                gridRow.push(temp.slice(ii, ii + 3));
+            // split elements into groups of 3
+            for (let ii = 0; ii < temp.length; ii += 3) {
+                if (ii + 3 > temp.length) {
+                    gridRow.push(temp.slice(ii, temp.length));
+                } else {
+                    gridRow.push(temp.slice(ii, ii + 3));
+                }
             }
+
+            console.log(gridRow);
+
+            console.log(gridRow[0][0]["_id"]);
+
+            setEntries(gridRow);
         }
-
-        console.log(gridRow);
-
-        console.log(gridRow[0][0]["_id"]);
-
-        setEntries(gridRow);
     };
 
     const getGrid = () => {
@@ -124,10 +129,11 @@ export function AllEntries() {
                 <button className="btn btn-primary me-2" id="list" type="button" onClick={changeToList}>List</button>
             </div>
             
+            <div className="mt-3">
+                {error !== "" ? <p className="text-danger">{error}</p> : <p></p>}
+            </div>
 
-            {
-                grid ? getGrid() : getList()
-            }
+            { grid ? getGrid() : getList() }
         </div>
     );
 }

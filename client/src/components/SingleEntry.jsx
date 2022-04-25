@@ -10,23 +10,37 @@ export function SingleEntry() {
     const params = useParams();
     const entryID = params.id;
 
+    const [original, setOriginal] = useState({});
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
+    const [error, setError] = useState("");
  
     
     const getSingleEntry = async () => {
         console.log("single entry...");
         console.log(entryID);
         const res = await api.getEntry(entryID);
-        // console.log(res);
-        // console.log(res.data.entry);
 
-        // setEntry(res.data.entry);
-        setTitle(res.data.entry.title);
-        setDate(res.data.entry.date);
-        setDescription(res.data.entry.description);
+        if (Object.hasOwnProperty.call(res.data, "error")) {
+            setError(res.data.error);
+        } else {
+            // console.log(res);
+            // console.log(res.data.entry);
 
+            // setEntry(res.data.entry);
+            setTitle(res.data.entry.title);
+            setDate(res.data.entry.date);
+            setDescription(res.data.entry.description);
+
+            const temp = {
+                title: res.data.entry.title,
+                date: res.data.entry.date,
+                description: res.data.entry.description
+            };
+
+            setOriginal(temp);
+        }
     };
 
     useEffect(() => {
@@ -48,6 +62,7 @@ export function SingleEntry() {
         
         if (Object.hasOwnProperty.call(res.data, "error")) {
             console.log("error!");
+            setError(res.data.error);
         } else {
             console.log(res.data.success);
             navigate("/entries");
@@ -56,19 +71,26 @@ export function SingleEntry() {
 
     const modifySingleEntry = async () => {
         // e.preventDefault();
+        // check to see if values have changed, otherwise don't
+        // make a background request
+        if (original.title !== title || original.date !== date || original.description !== description) {
+            console.log("fetching...");
+            const res = await api.updateEntry({
+                id: entryID,
+                title,
+                date,
+                entry: description
+            });
 
-        const res = await api.updateEntry({
-            id: entryID,
-            title,
-            date,
-            entry: description
-        });
-
-        if (Object.hasOwnProperty.call(res.data, "error")) {
-            console.log("error! updating entry!");
-            console.log(res.data.error);
+            if (Object.hasOwnProperty.call(res.data, "error")) {
+                console.log("error! updating entry!");
+                console.log(res.data.error);
+                setError(res.data.error);
+            } else {
+                // console.log(res.data.success);
+                navigate("/entries");
+            }
         } else {
-            // console.log(res.data.success);
             navigate("/entries");
         }
     };
@@ -123,9 +145,14 @@ export function SingleEntry() {
                             value={description}
                             required/>
                     </div>
+
+                    <div className="mt-3">
+                        {error !== "" ? <p className="text-danger">{error}</p> : <p></p>}
+                    </div>
+
                     <div className="mt-3 text-center">
                         <button type="button" className="btn btn-primary me-3" onClick={deleteSingleEntry}>Delete</button>
-                        <button type="button" className="btn btn-primary" onClick={modifySingleEntry}>Modify</button>
+                        <button type="button" className="btn btn-primary" onClick={modifySingleEntry}>Save</button>
                     </div>
                     
                 </form>

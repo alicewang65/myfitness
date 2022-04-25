@@ -9,6 +9,7 @@ export function AddEntry() {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [entry, setEntry] = useState("");
+    const [error, setError] = useState("");
 
     useEffect(() => {
         async function checkUser() {
@@ -44,6 +45,8 @@ export function AddEntry() {
 
         if (Object.hasOwnProperty.call(res.data, "success")) {
             navigate("/entries");
+        } else {
+            setError(res.data.error);
         }
     };
 
@@ -82,6 +85,11 @@ export function AddEntry() {
                             placeholder="Enter your training entry here..."
                             required/>
                     </div>
+
+                    <div className="mt-3">
+                        {error !== "" ? <p className="text-danger">{error}</p> : <p></p>}
+                    </div>
+
                     <div className="text-center mt-3">
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
