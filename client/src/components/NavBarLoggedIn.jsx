@@ -9,27 +9,28 @@ export function NavBarLoggedIn() {
     const logOut = async () => {
         const res = await api.logOutUser();
         if (Object.hasOwnProperty.call(res.data, "success")) {
-            navigate("/home", {state: "loggedout"});
+            // navigate("/loggingout");
+            navigate("/home");
         }
     };
 
     return (
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <div class="container-fluid">
-                <Link class="navbar-brand" to={"/home"}>MyFitness</Link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to={"/home"}>MyFitness</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <Link class="nav-link" to={"/entries"}>All Entries</Link>
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Link className="nav-link" to={"/entries"}>All Entries</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" to={"/create"}>Add Entry</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={"/create"}>Add Entry</Link>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link no-button" onClick={logOut}>Log Out</button>
+                        <li className="nav-item">
+                            <button className="nav-link no-button" onClick={logOut}>Log Out</button>
                         </li>
                     </ul>
                 </div>

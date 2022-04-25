@@ -116,7 +116,7 @@ export function SingleEntry() {
             <div className="w-75 mx-auto">
                 <form>
                     <div className="form-group mt-3">
-                        <label for="title">Title</label>
+                        <label htmlFor="title">Title</label>
                         <input className="form-control"
                             id="title" 
                             name="title" 
@@ -126,7 +126,7 @@ export function SingleEntry() {
                             required />
                     </div>
                     <div className="form-group mt-3">
-                        <label for="date">Date</label>
+                        <label htmlFor="date">Date</label>
                         <input className="form-control"
                             id="date" 
                             name="date" 
@@ -136,7 +136,7 @@ export function SingleEntry() {
                             required />
                     </div>
                     <div className="form-group mt-3">
-                        <label for="entry">Entry</label>
+                        <label htmlFor="entry">Entry</label>
                         <textarea className="form-control"
                             id="entry"
                             name="entry"

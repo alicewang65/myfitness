@@ -53,14 +53,14 @@ export function AllEntries() {
 
     const getGrid = () => {
         return (
-            entries.map((row) => {
+            entries.map((row, index) => {
                 // ele is an array of 3
                 return (
-                    <div className="row">
+                    <div className="row" key={"row" + index}>
                         {
                             row.map((ele) => {
                                 return (
-                                    <div className="col-md-4 my-2">
+                                    <div className="col-md-4 my-2" key={ele["_id"]}>
                                         <div className="card border-primary personal-card">
                                             <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
                                                 <div className="card-body">
@@ -90,7 +90,7 @@ export function AllEntries() {
                 return (
                     row.map(ele => {
                         return (
-                            <div className="my-2">
+                            <div className="my-2" key={ele["_id"]}>
                                 <div className="card border-primary personal-card">
                                     <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
                                         <div className="card-body">

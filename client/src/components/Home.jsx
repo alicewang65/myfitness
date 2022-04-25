@@ -8,7 +8,7 @@ import { NavBarLoggedIn } from "./NavBarLoggedIn";
 export function Home() {
     const [loggedIn, setLoggedIn] = useState(false);
     const location = useLocation();
-    console.log("location", location.state);
+    // console.log("location", location.state);
 
     useEffect(() => {
         console.log("useEffect...");

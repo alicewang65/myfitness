@@ -50,7 +50,7 @@ export function Register() {
             <div className="w-50 mx-auto">
                 <form onSubmit={submit}>
                     <div className="form-group mt-3">
-                        <label for="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <input className="form-control"
                             id="username" 
                             name="username" 
@@ -59,7 +59,7 @@ export function Register() {
                             required/>
                     </div>
                     <div className="form-group mt-3">
-                        <label for="current-password">Password</label>
+                        <label htmlFor="current-password">Password</label>
                         <input className="form-control"
                             id="current-password" 
                             name="password" 
