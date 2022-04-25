@@ -1,6 +1,23 @@
 # MyFitness
 
-(Final web app name still to be finalized!)
+## Milestone 4 Update
+
+(12 points) minimum 3 forms/ajax interactions:
+
+* ("/entries") - This route shows all the user's entries. Implemented by making a background request. Code for this can be viewed [here](./client/src/components/AllEntries.jsx) and [here](./client/src/api.js)
+* ("/create") - This route is for adding an entry to a user's log. After submitting the form, the user will be redirected to /entries, where the newly added entry can be viewed. Code for this can be viewed [here](./client/src/components/AddEntry.jsx) and [here](./client/src/api.js)
+* ("/entry/625ee5f671a805db48ff86e5") - This route is for modifying (including deleting) a specific entry. After modifying or deleting, the user will be redirected to /entries, where the results of such actions can be viewed. Code for this can be viewed [here](./client/src/components/SingleEntry.jsx) and [here](./client/src/api.js)
+    * Note: This route counts as two different interactions because there is an option for modifying or deleting, which directs to a different route and action on the back-end.
+* Each client-side route also makes an initial background request to see if the user is logged in. The api for that can be viewed [here](./client/src/api.js)
+
+(6 points) minimum 3 of the following (can be same):
+
+I chose to use the built-in higher order functions found in Array.prototype (namely, map). See [AllEntries.jsx](./client/src/components/AllEntries.jsx) for the 4 map function calls. 2 are within the function getGrid() and 2 are within getList()
+
+(2 points) minimum 2 mongoose schemas:
+
+See [db.js](./db.js) for my 3 mongoose schemas: User, Entry and Log
+
 
 ## Milestone 3 Update
 
