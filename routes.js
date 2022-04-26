@@ -23,14 +23,18 @@ router.post("/create", (req, res) => {
                 const id = req.user.log;
 
                 Log.findById(id, (err, log) => {
-                    log.items.push(entry);
-                    log.save((err) => {
-                        if (err) {
-                            res.json({"error": "Error adding entry to log."});
-                        } else {
-                            res.json({"success": "Successfully added entry."});
-                        }
-                    });
+                    if (err) {
+                        res.json({"error": "Error finding user's log."});
+                    } else {
+                        log.items.push(entry);
+                        log.save((err) => {
+                            if (err) {
+                                res.json({"error": "Error adding entry to log."});
+                            } else {
+                                res.json({"success": "Successfully added entry."});
+                            }
+                        });
+                    }
                 });
             }
         });
@@ -38,8 +42,8 @@ router.post("/create", (req, res) => {
 });
 
 router.get("/entries", (req, res) => {
-    console.log("/entries");
-    console.log(req.user);
+    // console.log("/entries");
+    // console.log(req.user);
 
     if (!Object.hasOwnProperty.call(req, "user")) {
         // if user isn't logged in
@@ -60,7 +64,7 @@ router.get("/entries", (req, res) => {
 });
 
 router.get("/entry", (req, res) => {
-    console.log("/entry");
+    // console.log("/entry");
 
     if (!Object.hasOwnProperty.call(req, "user")) {
         res.json({"error": "User hasn't logged in."});
@@ -70,7 +74,7 @@ router.get("/entry", (req, res) => {
         const entryID = req.query.id;
         
         Log.findById(id, (err, log) => {
-            console.log(log);
+            // console.log(log);
             if (err) {
                 res.json({"error": "Error finding log."});
             } else {
@@ -83,22 +87,22 @@ router.get("/entry", (req, res) => {
 });
 
 router.delete("/delete", (req, res) => {
-    console.log("/delete");
+    // console.log("/delete");
 
     if (!Object.hasOwnProperty.call(req, "user")) {
         res.json({"error": "User hasn't logged in."});
     } else {
         const id = req.user.log;
         const entryID = req.query.id; 
-        console.log(req.query);
-        console.log(entryID);
+        // console.log(req.query);
+        // console.log(entryID);
 
         // Entry.find({_id: entryID}, (err, entry) => {
         //     console.log(entry);
         // });
 
         Log.findById(id, (err, log) => {
-            console.log(log);
+            // console.log(log);
             if (err) {
                 res.json({"error": "Error finding log."});
             } else {
@@ -114,11 +118,11 @@ router.delete("/delete", (req, res) => {
                         res.json({"error": "Error removing item from log."});
                     } else {
                         // delete entry from database as well
-                        Entry.findOneAndDelete({_id: entryID}, (err, deletedEntry) => {
+                        Entry.findOneAndDelete({_id: entryID}, (err) => {
                             if (err) {
                                 res.json({"error": "Error deleting entry from database."});
                             } else {
-                                console.log(deletedEntry);
+                                // console.log(deletedEntry);
                                 res.json({"success": "Successfully removed item from log."});
                             }
                         });
@@ -130,7 +134,7 @@ router.delete("/delete", (req, res) => {
 });
 
 router.post("/update", async (req, res) => {
-    console.log("/update");
+    // console.log("/update");
 
     if (!Object.hasOwnProperty.call(req, "user")) {
         res.json({"error": "User hasn't logged in."});
@@ -153,7 +157,7 @@ router.post("/update", async (req, res) => {
                         res.json({"error": "Error finding log."});
                     } else {
                         const entries = log.items;
-                        console.log(entries);
+                        // console.log(entries);
         
                         const updateIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID; });
                         if (updateIndex === -1) {

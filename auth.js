@@ -6,8 +6,8 @@ const argon2 = require("argon2");
 module.exports = (app, passport) => {
     app.post("/login", (req, res, next) => {
         passport.authenticate("local", (err, user) => {
-            console.log("passport authenticate");
-            console.log(user);
+            // console.log("passport authenticate");
+            // console.log(user);
             if (err) {
                 res.json({"error": "Error authenticating."});
             } else if (user.length === 0) {
@@ -17,8 +17,8 @@ module.exports = (app, passport) => {
                     if (err) {
                         res.json({"error": "Error logging in."});
                     } else {
-                        console.log("authenticate method req user");
-                        console.log(req.user);
+                        // console.log("authenticate method req user");
+                        // console.log(req.user);
                         
                         res.json({"success": "Successfully logged in."});
                         // console.log(req.user);
@@ -41,7 +41,8 @@ module.exports = (app, passport) => {
                 
                 new Log({items: []}).save((err, log) => {
                     if (err) {
-                        console.log(err);
+                        // console.log(err);
+                        res.json({"error": "Error creating user's log."});
                     } else {
                         new User({
                             username: req.body.username,
