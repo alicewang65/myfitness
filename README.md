@@ -1,5 +1,25 @@
 # MyFitness
 
+- [MyFitness](#myfitness)
+  - [Milestone 4 Update](#milestone-4-update)
+  - [Milestone 3 Update](#milestone-3-update)
+  - [Milestone 2 Update](#milestone-2-update)
+  - [Overview](#overview)
+  - [Data Model](#data-model)
+  - [Link to Schema](#link-to-schema)
+  - [Wireframes](#wireframes)
+  - [Site map](#site-map)
+  - [User Stories or Use Cases](#user-stories-or-use-cases)
+  - [Research Topics](#research-topics)
+  - [Links to Project](#links-to-project)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [Annotations / References Used](#annotations--references-used)
+    - [Tutorials](#tutorials)
+    - [Troubleshooting Links](#troubleshooting-links)
+    - [Documentation](#documentation)
+    - [Assets](#assets)
+
 ## Milestone 4 Update
 
 (12 points) minimum 3 forms/ajax interactions:
