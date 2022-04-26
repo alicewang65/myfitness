@@ -32,7 +32,8 @@ export function Login() {
 
     const submit = async (e) => {
         e.preventDefault();
-        const res = await api.loginUser({username: user, password: pass});
+        // want username to be case insensitive
+        const res = await api.loginUser({username: user.toLowerCase(), password: pass});
         console.log(res);
         console.log(res.data);
 

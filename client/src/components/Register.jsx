@@ -33,7 +33,7 @@ export function Register() {
 
     const submit = async (e) => {
         e.preventDefault();
-        const res = await api.registerUser({username: user, password: pass});
+        const res = await api.registerUser({username: user.toLowerCase(), password: pass});
         // console.log(res.data);
 
         if (Object.hasOwnProperty.call(res.data, "error")) {
