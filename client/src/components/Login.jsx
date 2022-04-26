@@ -16,7 +16,7 @@ export function Login() {
             // check if user is logged in
             const res = await api.getUser();
             if (Object.hasOwnProperty.call(res.data, "success")) {
-                navigate("/home");
+                navigate("/entries");
             }
         }
         checkUser();        
@@ -34,14 +34,14 @@ export function Login() {
         e.preventDefault();
         // want username to be case insensitive
         const res = await api.loginUser({username: user.toLowerCase(), password: pass});
-        console.log(res);
-        console.log(res.data);
+        // console.log(res);
+        // console.log(res.data);
 
         if (Object.hasOwnProperty.call(res.data, "error")) {
-            console.log("setting error");
+            // console.log("setting error");
             setError(res.data.error);
         } else {
-            console.log(res.data);
+            // console.log(res.data);
             navigate("/entries");
         }
     };

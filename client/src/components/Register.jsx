@@ -16,7 +16,7 @@ export function Register() {
             // check if user is logged in
             const res = await api.getUser();
             if (Object.hasOwnProperty.call(res.data, "success")) {
-                navigate("/home");
+                navigate("/entries");
             }
         }
         checkUser();

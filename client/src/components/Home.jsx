@@ -11,11 +11,11 @@ export function Home() {
     // console.log("location", location.state);
 
     useEffect(() => {
-        console.log("useEffect...");
+        // console.log("useEffect...");
         async function checkUser() {
             // check if user is logged in
             const res = await api.getUser();
-            console.log(res.data);
+            // console.log(res.data);
             if (Object.hasOwnProperty.call(res.data, "success")) {
                 setLoggedIn(true);
             } else {

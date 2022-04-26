@@ -43,9 +43,9 @@ export function AllEntries() {
                 }
             }
 
-            console.log(gridRow);
+            // console.log(gridRow);
 
-            console.log(gridRow[0][0]["_id"]);
+            // console.log(gridRow[0][0]["_id"]);
 
             setEntries(gridRow);
         }

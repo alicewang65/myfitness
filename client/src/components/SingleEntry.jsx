@@ -18,8 +18,8 @@ export function SingleEntry() {
  
     
     const getSingleEntry = async () => {
-        console.log("single entry...");
-        console.log(entryID);
+        // console.log("single entry...");
+        // console.log(entryID);
         const res = await api.getEntry(entryID);
 
         if (Object.hasOwnProperty.call(res.data, "error")) {
@@ -56,15 +56,15 @@ export function SingleEntry() {
     }, []);
 
     const deleteSingleEntry = async () => {
-        console.log(entryID);
+        // console.log(entryID);
 
         const res = await api.deleteEntry(entryID);
         
         if (Object.hasOwnProperty.call(res.data, "error")) {
-            console.log("error!");
+            // console.log("error!");
             setError(res.data.error);
         } else {
-            console.log(res.data.success);
+            // console.log(res.data.success);
             navigate("/entries");
         }
     };
@@ -74,7 +74,7 @@ export function SingleEntry() {
         // check to see if values have changed, otherwise don't
         // make a background request
         if (original.title !== title || original.date !== date || original.description !== description) {
-            console.log("fetching...");
+            // console.log("fetching...");
             const res = await api.updateEntry({
                 id: entryID,
                 title,
@@ -83,8 +83,8 @@ export function SingleEntry() {
             });
 
             if (Object.hasOwnProperty.call(res.data, "error")) {
-                console.log("error! updating entry!");
-                console.log(res.data.error);
+                // console.log("error! updating entry!");
+                // console.log(res.data.error);
                 setError(res.data.error);
             } else {
                 // console.log(res.data.success);
