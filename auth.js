@@ -5,7 +5,7 @@ const argon2 = require("argon2");
 
 module.exports = (app, passport) => {
     app.post("/login", (req, res, next) => {
-        passport.authenticate("local", (err, user, info) => {
+        passport.authenticate("local", (err, user) => {
             console.log("passport authenticate");
             console.log(user);
             if (err) {
@@ -47,7 +47,7 @@ module.exports = (app, passport) => {
                             username: req.body.username,
                             password: hashedPass,
                             log: log["_id"]
-                        }).save((err, user) => {
+                        }).save((err) => {
                             if (err) {
                                 res.json({"error": "Error saving user to database."});
                             } else {

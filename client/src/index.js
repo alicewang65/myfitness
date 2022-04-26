@@ -8,7 +8,7 @@ import "./scss/custom.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 // import css
-import "./assets/main.css"
+import "./assets/main.css";
 
 // component imports
 import { Home } from './components/Home';

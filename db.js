@@ -6,7 +6,7 @@ require("dotenv").config();
 const User = new mongoose.Schema({
 	username: {type: String, required: true},
 	password: {type: String, required: true},
-  	log: { type: mongoose.Schema.Types.ObjectId, ref: 'Log' }
+	log: {type: mongoose.Schema.Types.ObjectId, ref: 'Log'}
 });
 
 // Entry Schema, represents an entry, with fields for

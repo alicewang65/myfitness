@@ -169,8 +169,6 @@ An Example Entry:
 
 ## Annotations / References Used
 
-### Notes
-
 ### Tutorials
 
 These are links to tutorials that were referenced for specific implementations. Code from these tutorials was referenced and potentially adapted for use in my program.
@@ -210,3 +208,8 @@ These are links to general documentation for different libraries/features used t
 6. [Axios Documentation](https://axios-http.com/docs/intro)
     1. Used mainly for api-related code, see [api.js](./client/src/api.js)
 7. [Markdown Cheatsheet](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md) -- referenced to format this README
+
+### Assets
+
+1. Home page background image from [Freepik](https://www.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_15517801.htm#query=watercolor%20background&position=1&from_view=keyword)
+2. Favicon generated using [Favicon.io](https://favicon.io/favicon-converter/) -- actual favicon was designed by me though.

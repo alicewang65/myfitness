@@ -10,7 +10,7 @@ const app = express();
 
 
 // serve build files
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 // body parser (req.body)
 app.use(express.urlencoded({ extended: false }));
@@ -33,7 +33,7 @@ require("./passport_config.js")(passport);
 require("./auth.js")(app, passport);
 
 app.get("/", (req, res) => {
-    // res.send("Hello World!");
+    res.send("Hello World!");
 });
 
 // route to check if user is logged in

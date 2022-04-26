@@ -74,7 +74,7 @@ router.get("/entry", (req, res) => {
             if (err) {
                 res.json({"error": "Error finding log."});
             } else {
-                const entry = (log.items).find((ele) => { return ele["_id"].toString() === entryID });
+                const entry = (log.items).find((ele) => { return ele["_id"].toString() === entryID; });
                 // console.log(entry);
                 res.json({"entry": entry});
             }
@@ -103,7 +103,7 @@ router.delete("/delete", (req, res) => {
                 res.json({"error": "Error finding log."});
             } else {
                 const entries = log.items;
-                const deleteIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID });
+                const deleteIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID; });
 
                 entries.splice(deleteIndex, 1);
 
@@ -142,7 +142,7 @@ router.post("/update", async (req, res) => {
             title: req.body.title,
             date: req.body.date,
             description: req.body.entry
-        }
+        };
 
         Entry.findOneAndUpdate({_id: entryID}, update, {new : true}, (err, updatedEntry) => {
             if (err) {
@@ -155,7 +155,7 @@ router.post("/update", async (req, res) => {
                         const entries = log.items;
                         console.log(entries);
         
-                        const updateIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID });
+                        const updateIndex = entries.findIndex((ele) => { return ele["_id"].toString() === entryID; });
                         if (updateIndex === -1) {
                             res.json({"error": "Error: Entry doesn't exist in log."});
                         } else {

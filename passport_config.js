@@ -21,9 +21,8 @@ module.exports = (passport) => {
                     console.log("verify");
                     console.log(user[0]);
                     return done(null, user[0]);
-                } else {
-                    return done(null, false);
                 }
+                return done(null, false);
             }
         });
     })); 
@@ -43,4 +42,4 @@ module.exports = (passport) => {
             done(err, user);
         });
     }); 
-}
+};
