@@ -53,34 +53,38 @@ export function AllEntries() {
 
     const getGrid = () => {
         return (
-            entries.map((row, index) => {
-                // ele is an array of 3
-                return (
-                    <div className="row" key={"row" + index}>
-                        {
-                            row.map((ele) => {
-                                return (
-                                    <div className="col-md-4 my-2" key={ele["_id"]}>
-                                        <div className="card border-primary personal-card">
-                                            <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
-                                                <div className="card-body">
-                                                    <h5 className="card-title">
-                                                        {ele.title}
-                                                    </h5>
-                                                    <h6 className="card-subtitle mb-2 text-muted">{ele.date}</h6>
-                                                    <p className="card-text">
-                                                        {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}
-                                                    </p>
+            <div className="container">
+                {
+                    entries.map((row, index) => {
+                        // ele is an array of 3
+                        return (
+                            <div className="row" key={"row" + index}>
+                                {
+                                    row.map((ele) => {
+                                        return (
+                                            <div className="col-md-4 my-2" key={ele["_id"]}>
+                                                <div className="card border-primary personal-card">
+                                                    <Link to={"/entry/" + ele["_id"]} className="text-decoration-none text-reset">
+                                                        <div className="card-body">
+                                                            <h5 className="card-title">
+                                                                {ele.title}
+                                                            </h5>
+                                                            <h6 className="card-subtitle mb-2 text-muted">{ele.date}</h6>
+                                                            <p className="card-text">
+                                                                {(ele.description).substring(0, 50) + ((ele.description.length > 50) ? "..." : "")}
+                                                            </p>
+                                                        </div>
+                                                    </Link>
                                                 </div>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                );
-            })
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        );
+                    })
+                }
+            </div>
         );
     };
 

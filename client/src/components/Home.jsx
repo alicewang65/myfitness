@@ -47,9 +47,9 @@ export function Home() {
                 </p>
             </div>
             <h2>Getting Started</h2>
-            <div className="container-fluid mt-3 mx-auto w-100">
-                <div className="row w-100">
-                    <div className="col border p-3 m-2 bg-light">
+            <div className="container mt-3 mx-auto">
+                <div className="row">
+                    <div className="col-md border p-3 m-2 bg-light">
                         <h3>Registering</h3>
                         <p>
                             Getting started only requires creating an account! Simply click on the
@@ -57,7 +57,7 @@ export function Home() {
                             username and password. Then, simply log-in with your credentials.
                         </p>
                     </div>
-                    <div className="col border p-3 m-2 bg-light">
+                    <div className="col-md border p-3 m-2 bg-light">
                         <h3>Creating an Entry</h3>
                         <p>
                             After logging in, you'll see your list of all training entries. To create
@@ -66,7 +66,7 @@ export function Home() {
                             should see your newly created entry in your list of entries.
                         </p>
                     </div>
-                    <div className="col border p-3 m-2 bg-light">
+                    <div className="col-md border p-3 m-2 bg-light">
                         <h3>Modifying an Entry</h3>
                         <p>
                             If you ever need to modify or delete an entry, simply click the entry to
