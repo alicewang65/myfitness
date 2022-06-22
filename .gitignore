@@ -3,3 +3,6 @@ node_modules
 *.swp
 .DS_Store
 .env
+
+aitremove.txt
+bfg-1.14.0.jar
