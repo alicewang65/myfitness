@@ -1,16 +1,12 @@
 # MyFitness
 
 - [MyFitness](#myfitness)
-  - [Milestone 4 Update](#milestone-4-update)
-  - [Milestone 3 Update](#milestone-3-update)
-  - [Milestone 2 Update](#milestone-2-update)
   - [Overview](#overview)
   - [Data Model](#data-model)
   - [Link to Schema](#link-to-schema)
   - [Wireframes](#wireframes)
   - [Site map](#site-map)
   - [User Stories or Use Cases](#user-stories-or-use-cases)
-  - [Research Topics](#research-topics)
   - [Links to Project](#links-to-project)
     - [Backend](#backend)
     - [Frontend](#frontend)
@@ -20,60 +16,14 @@
     - [Documentation](#documentation)
     - [Assets](#assets)
 
-## Milestone 4 Update
-
-(12 points) minimum 3 forms/ajax interactions:
-
-* ("/entries") - This route shows all the user's entries. Implemented by making a background request. Code for this can be viewed [here](./client/src/components/AllEntries.jsx) and [here](./client/src/api.js)
-* ("/create") - This route is for adding an entry to a user's log. After submitting the form, the user will be redirected to /entries, where the newly added entry can be viewed. Code for this can be viewed [here](./client/src/components/AddEntry.jsx) and [here](./client/src/api.js)
-* ("/entry/625ee5f671a805db48ff86e5") - This route is for modifying (including deleting) a specific entry. After modifying or deleting, the user will be redirected to /entries, where the results of such actions can be viewed. Code for this can be viewed [here](./client/src/components/SingleEntry.jsx) and [here](./client/src/api.js)
-    * Note: This route counts as two different interactions because there is an option for modifying or deleting, which directs to a different route and action on the back-end.
-* Each client-side route also makes an initial background request to see if the user is logged in. The api for that can be viewed [here](./client/src/api.js)
-
-(6 points) minimum 3 of the following (can be same):
-
-I chose to use the built-in higher order functions found in Array.prototype (namely, map). See [AllEntries.jsx](./client/src/components/AllEntries.jsx) for the 4 map function calls. 2 are within the function getGrid() and 2 are within getList()
-
-(2 points) minimum 2 mongoose schemas:
-
-See [db.js](./db.js) for my 3 mongoose schemas: User, Entry and Log
-
-
-## Milestone 3 Update
-
-To access the forms, you must be logged in ("/login"). The login credentials have been included in the Google form, but are also here - username: "test", password: "password").
-
-Two working forms/AJAX interactions (besides login/registration):
-
-1. ("/entries") - This route shows all the user's entries. Implemented by making a background request. Code for this can be viewed [here](./client/src/components/AllEntries.jsx) and [here](./client/src/api.js)
-2. ("/create") - This route is for adding an entry to a user's log. After submitting the form, the user will be redirected to /entries, where the newly added entry can be viewed. Code for this can be viewed [here](./client/src/components/AddEntry.jsx) and [here](./client/src/api.js)
-3. ("/entry/625ee5f671a805db48ff86e5") - This route is for modifying (including deleting) a specific entry. After modifying or deleting, the user will be redirected to /entries, where the results of such actions can be viewed. Code for this can be viewed [here](./client/src/components/SingleEntry.jsx) and [here](./client/src/api.js)
-    1. Note: I think this might count as two different interactions because there is an option for modifying or deleting, which directs to a different route and action on the back-end.
-
-
-Significant Progress on Research Topics:
-1. As of Milestone 2, I had pretty much fully integrated Passport into my web app. For this milestone, I finished implementing logging out, which pretty much wraps up Passport. Code for that can be viewed [here](./passport_config.js) and [here](./auth.js)
-2. I have used my front-end framework, React. This milestone, I restructured my code to have better security (namely, seeing if a user is logged in and redirecting them to the appropriate routes depending on if they're logged in or not)
-3. I have customized Bootstrap through the theme-colors and font-family. Code for that can be seen [here](./client/src/scss/custom.scss)
-
-Code Changes: [HERE](https://github.com/nyu-csci-ua-0467-001-002-spring-2022/final-project-alicewang65/compare/706a5c9acc2a445776086a8216546b195f3f244a..5744e0819b24b5d109f9913134f2033d6e4d94d6)
-
-## Milestone 2 Update
-
-To access the form that isn't login/registration, you do need to be LOGGED IN. (Login credentials have been included in Google form, but they are also here -- username: "test", password: "password")
-
-After logging in, you will be redirected to the page that shows all of your entries (this is the page proves adding an entry works!). You can navigate to the add entry page from the navigation bar at the top of the page. After adding an entry, you will also be redirected to the page showing all of your entries.
-
-Research Topic Updates:
-* I have fully integrated Passport into my web app, code is seen [here](./passport_config.js) and [here](./auth.js)
-* I have limited bootstrap included (just the navbar for the site)
-* I have used a front-end framework, namely React
 
 ## Overview
 
 Whether you're a professional athlete or just starting your fitness journey, you're bound to hear about the advantages of keeping a training log. Training logs help you keep track of your progress and allow for self reflection in the future. 
 
 However, it's not easy to keep track of all that information! MyFitness is a web app that will allow users to keep track of their workouts. Once registered and logged in, users can add, remove and update their workouts. They're also able to see all of their past workouts.
+
+If you'd like to test out the site without creating an account, you can use the following login credentials => username: "test", password: "password"
 
 
 ## Data Model
@@ -151,26 +101,6 @@ An Example Entry:
 4. As a user, I can create a new entry (title, date, description) in a log.
 5. As a user, I can modify an existing entry (including deleting the entry) in a log.
 6. As a visitor to the page, I can see the home page to learn more information about the site.
-
-
-## Research Topics
-
-* (5 points) Passport
-    * Passport is "authentication middleware for Node.js"
-    * One of their strategies support authentication via username and password, which I'm planning on using
-    * Passport offers a more elegant and simpler way for me to handle the user authentication process, which is necessary for implementing user accounts
-    * After spending many, many hours trying to integrate Passport into my web app, I've increased its point value.
-* (4 points) React
-    * React is a "front-end JavaScript library for building user interfaces based on UI components"
-    * I've used React before in the past, and in my experience, it's helpful in building robust web pages quickly.
-    * However, I've never had a back-end with my React apps, which I anticipate being my biggest challenge (Professor Versoza also briefly mentioned that it can be tricky). Hence, I've given it 4 points.
-* (2 points) Bootstrap
-    * Bootstrap is a "CSS framework directed at responsive, mobile-first front-end web development"
-    * Bootstrap makes it easy to quickly integrate CSS into different elements (overall makes it easier to have a nice looking page)
-    * Per the requirements, I will be configuring a theme and playing around with other customization
-    * Point value assigned based on the requirements
-
-11 points total out of 8 required points
 
 
 ## Links to Project
